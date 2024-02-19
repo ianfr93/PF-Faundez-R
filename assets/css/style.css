@@ -202,48 +202,52 @@ html, body {
   }
 
 
-/* Estilo general para el fondo oscuro de fondo al abrir la ventana flotante */
-.modal-backdrop {
-  background-color: rgba(0, 0, 0, 0.5) !important;
+
+
+
+/* Estilos específicos para la ventana flotante */
+#ventanaFlotanteLabel {
+  text-align: center;
 }
 
-/* Estilo para el contenido de la ventana flotante */
-.modal-content {
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-/* Estilo para el encabezado de la ventana flotante */
-.modal-header {
-  background-color: #007bff;
-  color: #fff;
-  border-bottom: 1px solid #dee2e6;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-/* Estilo para el cuerpo de la ventana flotante */
 .modal-body {
   padding: 20px;
 }
 
-/* Estilo para el pie de la ventana flotante */
 .modal-footer {
-  border-top: 1px solid #dee2e6;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  justify-content: center;
 }
 
-/* Estilo para el botón de cerrar en la esquina superior derecha */
-.close {
+/* Otros estilos según tu diseño y necesidades */
+
+/* Agrega tus estilos personalizados a continuación */
+
+/* Mensaje */
+#mensaje {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  z-index: 1000;
+}
+
+/* Botones dentro de la ventana flotante */
+.btn-primary {
+  background-color: #007bff;
   color: #fff;
 }
 
-/* Ajustes adicionales según tus preferencias */
-/* ... */
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
 
-
-
+/* Input dentro de la ventana flotante */
+.form-control {
+  width: 100%;
+}
 
 
 
