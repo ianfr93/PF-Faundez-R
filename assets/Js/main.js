@@ -51,7 +51,7 @@ function autenticarUsuario(event) {
     }
   } else {
     // Redirige al usuario al dashboard solo si los datos son válidos
-    window.location.href = './pages/dashboard.html';
+    window.location.href = './pages/Menu-de-caja.html';
   }
 }
 
