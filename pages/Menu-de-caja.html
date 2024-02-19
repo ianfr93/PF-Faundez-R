@@ -15,8 +15,8 @@
     <!-- aos -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- estilos -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/fonts.css">
 
     <!-- font awesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -28,47 +28,43 @@
 <div id="mensaje" class="alert" style="display:none;"></div>
 
 
-    <div class="container-fluid register-login">
-        <div class="row wrapper">
-            <div class="col-lg padding-none bg-image-container">
-                <div class="container__image">
-                    <div class="image--points"></div>
-                </div>
-            </div>
-            <div class="col-lg form-center d-flex justify-content-center align-items-center">
-                <div class="container-form">
-                    <img src="./assets/img/logo/logo-principal.png" alt="">
-                 
-                    <p class="register-login-p"><h1>¡Bienvenido!, por favor ingresa tus credenciales</h1></p>
-                    <form action="login.php" method="POST" name="loginForm" id="loginForm">
-                        <div class="form-group">
-                            <input type="text" id="username" name="username" class="form-control" required>
-                            <label for="username" class="form-label">Nombre de Usuario</label>
-                        </div>
-                        <div class="form-group margin--bottom">
-                            <input type="password" id="password" name="password" class="form-control" required>
-                            <label for="password" class="form-label">Contraseña</label>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <div class="d-flex align-items-center">
-                                <input class="form-check-input checked--form--input" type="checkbox" id="remember"
-                                    value="">
-                                <label class="form-check-label order-2" for="remember">Recuérdame</label>
-                                <label class="label--ckecked order-1" for="remember"></label>
-                            </div>
-                            <a href="#" class="forgot__password--link">¿Olvidó su contraseña?</a>
-                        </div>
-                        <div class="d-flex justify-content-lg-between">
-                            <button type="button" class="btn btn-login align-self-center" onclick="autenticarUsuario()"
-                                id="acceso">Entrar</button>
-                        </div>
-                        <a href="#" class="register-link--haveaccount">¿No tienes una cuenta? Registrate</a>
-                    </form>
-                </div>
+<div class="container-2">
+    <div class="header">
+        <h1>POS System</h1>
+        <p>Empresa: Gear Solutions</p>
+    </div>
+    <div class="main">
+        <h2>Código de Barra, Nombre, Tipo o Marc</h2>
+        <p>Hemos detectado que no has realizado apertura de caja, para continuar al POS favor apertura.</p>
+        <div class="buttons">
+            <button class="button-primary">Terminal de Pago Smart</button>
+            <button class="button-secondary">Visualización por pantalla (PDF)</button>
+        </div>
+        <h2>Caja:</h2>
+        <div class="caja-options">
+            <button class="button-tertiary">Impresión Automática (Impresora Térmica)</button>
+            <p>Cajas Disponibles: Capa Qlickpos - CAJA DE PRUEBAS</p>
+        </div>
+        <div class="total">
+            <p>BOLETAS AFECTAS: BOLETAS EXENTAS</p>
+            <p>Monto: 2000</p>
+        </div>
+        <div class="buttons">
+            <button class="button-primary">FACTURAS AFECTAS</button>
+            <button class="button-secondary">FACTURA</button>
+            <button class="button-secondary">Guardar</button>
+        </div>
+        <div class="footer">
+            <h2>Total:</h2>
+            <p>0 N CU 吉</p>
+            <div class="buttons">
+                <button class="button-tertiary">AL $0</button>
+                <button class="button-primary">Cerrar caja</button>
+                <button class="button-tertiary">Limpiar venta</button>
             </div>
         </div>
     </div>
-
+</div>
 
 
     <!-- Enlace a main.js -->
