@@ -52,6 +52,11 @@ function autenticarUsuario(event) {
   } else {
     // Redirige al usuario al dashboard solo si los datos son válidos
     window.location.href = './pages/Menu-de-caja.html';
+    // Agrega un evento al botón que abrirá la ventana modal
+document.getElementById("botonAbrirVentana").addEventListener("click", function () {
+  // Muestra la ventana modal
+  $('#ventanaFlotante').modal('show');
+});
   }
 }
 
@@ -59,4 +64,7 @@ document.getElementById("acceso").addEventListener("click", function (event) {
   if (intentosRestantes > 4) {
     autenticarUsuario(event);
   }
+
 });
+
+
