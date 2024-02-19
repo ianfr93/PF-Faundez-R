@@ -27,44 +27,45 @@
     <!-- Agrega un elemento div para mostrar mensajes -->
 <div id="mensaje" class="alert" style="display:none;"></div>
 
+<!-- Ventana Flotante -->
+<div class="modal fade" id="ventanaFlotante" tabindex="-1" role="dialog" aria-labelledby="ventanaFlotanteLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ventanaFlotanteLabel">Título de la Ventana</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
 
-<div class="container-2">
-    <div class="header">
-        <h1>POS System</h1>
-        <p>Empresa: Gear Solutions</p>
-    </div>
-    <div class="main">
-        <h2>Código de Barra, Nombre, Tipo o Marc</h2>
-        <p>Hemos detectado que no has realizado apertura de caja, para continuar al POS favor apertura.</p>
-        <div class="buttons">
-            <button class="button-primary">Terminal de Pago Smart</button>
-            <button class="button-secondary">Visualización por pantalla (PDF)</button>
-        </div>
-        <h2>Caja:</h2>
-        <div class="caja-options">
-            <button class="button-tertiary">Impresión Automática (Impresora Térmica)</button>
-            <p>Cajas Disponibles: Capa Qlickpos - CAJA DE PRUEBAS</p>
-        </div>
-        <div class="total">
-            <p>BOLETAS AFECTAS: BOLETAS EXENTAS</p>
-            <p>Monto: 2000</p>
-        </div>
-        <div class="buttons">
-            <button class="button-primary">FACTURAS AFECTAS</button>
-            <button class="button-secondary">FACTURA</button>
-            <button class="button-secondary">Guardar</button>
-        </div>
-        <div class="footer">
-            <h2>Total:</h2>
-            <p>0 N CU 吉</p>
-            <div class="buttons">
-                <button class="button-tertiary">AL $0</button>
-                <button class="button-primary">Cerrar caja</button>
-                <button class="button-tertiary">Limpiar venta</button>
+                <!-- Contenido de la Ventana -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-primary">Seleccione Empresa</button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-primary">Seleccione Caja</button>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <label for="monto">Monto en Dinero:</label>
+                            <input type="text" class="form-control" id="monto">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
             </div>
         </div>
     </div>
 </div>
+
 
 
     <!-- Enlace a main.js -->
