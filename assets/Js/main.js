@@ -83,17 +83,16 @@ document.addEventListener("DOMContentLoaded", function() {
     tipoDocumento = obtenerValorSelect('selectTipoDocumento');
     monto = parseFloat(document.getElementById('monto').value);
 
-    if (empresa === 'Seleccione' || caja === 'Seleccione' || imprimir === 'Seleccione' || tipoDocumento === 'Seleccione') {
-      alert('Por favor, seleccione todas las opciones antes de continuar.');
-      return false;
+    switch(true) {
+      case (empresa === 'Seleccione' || caja === 'Seleccione' || imprimir === 'Seleccione' || tipoDocumento === 'Seleccione'):
+        alert('Por favor, seleccione todas las opciones antes de continuar.');
+        return false;
+      case (monto <= 0 || isNaN(monto)):
+        alert('Ingrese un monto válido mayor que cero.');
+        return false;
+      default:
+        return true;
     }
-
-    if (monto <= 0 || isNaN(monto)) {
-      alert('Ingrese un monto válido mayor que cero.');
-      return false;
-    }
-
-    return true;
   }
 
   function guardarYRedirigir() {
