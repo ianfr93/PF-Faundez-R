@@ -63,10 +63,41 @@ document.getElementById("acceso").addEventListener("click", function (event) {
 
 });
 
-function guardarYRedirigir() {
-  // Aquí puedes realizar la acción de guardar (puedes agregar tu lógica aquí)
+// Variables globales y funciones para la pantalla de caja
+let empresa;
+let caja;
+let imprimir; // Corregido: Cambiado de 'selectImprimir' a 'selectCajaImprimir'
+let tipoDocumento;
+let monto;
 
-  // Después de guardar, redirige a la otra página
-  window.location.href = './dashboard.html';
+function obtenerValorSelect(idSelect) {
+  const selectElement = document.getElementById(idSelect);
+  return selectElement.options[selectElement.selectedIndex].text;
 }
 
+function validarCampos() {
+  empresa = obtenerValorSelect('selectEmpresa');
+  caja = obtenerValorSelect('selectCaja');
+  imprimir = obtenerValorSelect('selectCajaImprimir'); // Corregido: Cambiado de 'selectImprimir' a 'selectCajaImprimir'
+  tipoDocumento = obtenerValorSelect('selectTipoDocumento');
+  monto = parseFloat(document.getElementById('monto').value);
+
+  if (empresa === 'Seleccione' || caja === 'Seleccione' || imprimir === 'Seleccione' || tipoDocumento === 'Seleccione') {
+    alert('Por favor, seleccione todas las opciones antes de continuar.');
+    return false;
+  }
+
+  if (monto <= 0 || isNaN(monto)) {
+    alert('Ingrese un monto válido mayor que cero.');
+    return false;
+  }
+
+  return true;
+}
+
+function guardarYRedirigir() {
+  if (validarCampos()) {
+    alert('Datos válidos. Guardando y redirigiendo desde la pantalla de caja...');
+    window.location.href = './dashboard.html';
+  }
+}
