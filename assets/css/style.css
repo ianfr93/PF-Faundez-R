@@ -215,7 +215,7 @@ html, body {
 
 label {
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .custom-select-label{
@@ -246,13 +246,16 @@ h1 {
 .btn-secondary {
     background-color: #6c757d;
     border-color: #6c757d;
+   
 }
 
 .btn:hover, .btn-secondary:hover {
     background-color: #0056b3;
     border-color: #0056b3;
 }
-
+.botones-caja{
+  margin-top: 35px;
+}
 
 @media screen and (min-width: 1400px) {
   .register-login .bg-image-container {
