@@ -248,16 +248,55 @@ h1 {
 .btn-secondary {
     background-color: #6c757d;
     border-color: #6c757d;
+    margin-right: 3px;
    
 }
 
 .btn:hover, .btn-secondary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    background-color: #00A79D;
+    border-color: #00A79D;
 }
-.botones-caja{
+.botones-caja {
   margin-top: 35px;
+ 
 }
+
+.input-group{
+  margin-top: -10px;
+}
+
+/* Estilo para el rectángulo */
+/* Estilo para el rectángulo */
+.rectangulo-BG {
+  background-color: #2b5c6f !important; /* Color de fondo azul (#007bff) */
+  color: #fff; /* Color de texto blanco */
+  padding: 1.5rem; /* Espaciado interno */
+  border-radius: 0.15rem; /* Bordes redondeados */
+  display: flex; /* Utiliza el modelo de caja flexible para alinear elementos */
+  align-items: center; /* Centra verticalmente los elementos en el contenedor */
+  height: 2px;
+}
+
+/* Estilo para el ícono de cajero */
+.fa-cash-register {
+  font-size: 1.8rem !important; /* Tamaño del ícono ajustado */
+  margin-right: 1rem; /* Espaciado derecho entre el ícono y el título */
+  margin-top: 12px;
+}
+
+/* Estilo para el título */
+.h4 {
+  font-size: 1.2rem !important; /* Tamaño del título */
+  margin: 0; /* Elimina el margen predeterminado */
+  margin-top: 5px !important;
+}
+
+/* Estilo para el título */
+.input-group-text{
+  height: 40px;
+  margin-top: 20px;
+}
+
 
 @media screen and (min-width: 1400px) {
   .register-login .bg-image-container {

@@ -26,12 +26,28 @@
 </head>
 
 <body>
-
+   
     <div class="container-2">
+      
         <div class="row mb-3">
+        
             <div class="col-12">
-                <img src="../assets/img/iconos/warning-1.gif" alt="Icono" class="img-fluid mx-auto d-block" style="max-width: 130px; max-height: 130px;">
-                <h2 style="color: #2b5c6f; font-size: 20px; font-weight: medium; margin-top: 20px;">"Hemos notado que aún no has realizado
+            
+               
+
+                <!-- Rectángulo azul con ícono de cajero y título -->
+                <div class="rectangulo-BG bg-primary text-white p-4 rounded">
+                    <!-- Ícono de cajero -->
+                    <i class="fas fa-cash-register fa-3x d-block mb-3"></i>
+
+                    <!-- Título -->
+                    <h2 class="h4">Cajas disponibles</h2>
+                </div>
+
+                <img src="../assets/img/iconos/warning-1.gif" alt="Icono" class="img-fluid mx-auto d-block"
+                    style="max-width: 100px; max-height: 100px; margin-top: 20px;">
+                <h2 style="color: #2b5c6f; font-size: 20px; font-weight: medium; margin-top: 20px;">"Hemos notado que
+                    aún no has realizado
                     la apertura de caja necesaria para acceder al POS. Por favor, realiza la apertura antes de
                     continuar."</h2>
 
@@ -98,12 +114,15 @@
             </div>
 
         </div>
-        
+
         <div class="col-md-12">
             <div class="row mb-3">
                 <div class="col-md-12">
                     <label for="monto" style="margin-bottom: 10px; display: block;color: #2b5c6f; font-weight: 600;">Monto en dinero:</label>
-                    <input type="number" class="form-control" id="monto" step="1">
+                    <div class="input-group">
+                        <span class="input-group-text">$</span> <!-- Signo de peso -->
+                        <input type="number" class="form-control" id="monto" step="1" value="0">
+                    </div>
                 </div>
             </div>
         </div>
@@ -113,7 +132,9 @@
             <div class="row mb-8">
                 <div class="col text-end">
                     <button type="button" class="btn btn-secondary">Salir</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-primary" onclick="guardarYRedirigir()">Guardar</button>
+                   
+
                 </div>
             </div>
         </div>

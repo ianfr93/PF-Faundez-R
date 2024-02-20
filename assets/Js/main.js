@@ -63,4 +63,10 @@ document.getElementById("acceso").addEventListener("click", function (event) {
 
 });
 
+function guardarYRedirigir() {
+  // Aquí puedes realizar la acción de guardar (puedes agregar tu lógica aquí)
+
+  // Después de guardar, redirige a la otra página
+  window.location.href = './dashboard.html';
+}
 
