@@ -215,11 +215,13 @@ html, body {
 
 label {
     font-weight: bold;
-    margin-bottom: 16px;
+    margin-bottom: 15px;
 }
 
 .custom-select-label{
-  margin-top: 30px;
+  margin-top: 14px;
+  font-weight:600;
+  color: #2b5c6f;
 }
 
 h1 {
