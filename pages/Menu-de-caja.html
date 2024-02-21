@@ -59,7 +59,8 @@
                 <div class="second-line">
                     <div class="custom-select-container">
                         <label for="selectEmpresa" class="custom-select-label">Empresa:</label>
-                        <select class="form-select">
+                        <select id="selectEmpresa" class="form-select">
+                           
                             <option>Seleccione</option>
                             <option>Empresa-Las condes</option>
                             <option>Empresa-Huechuraba</option>
@@ -73,7 +74,7 @@
                 <div class="second-line">
                     <div class="custom-select-container">
                         <label for="selectCaja" class="custom-select-label">Caja:</label>
-                        <select class="form-select">
+                        <select id="selectCaja" class="form-select">
                             <option>Seleccione</option>
                             <option>Caja-1</option>
                             <option>Caja-2</option>
@@ -83,27 +84,27 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="col-md-6">
                 <div class="second-line">
                     <div class="custom-select-container">
-                        <label for="selectCaja" class="custom-select-label">¿Comó desea imprimir?:</label>
-                        <select class="form-select">
+                        <label for="selectImprimir" class="custom-select-label">¿Cómo desea imprimir?:</label>
+                        <select id="selectImprimir" class="form-select">
                             <option>Seleccione</option>
                             <option>Terminal de pago Smart</option>
                             <option>PDF</option>
                             <option>Redelcom POS</option>
-                            <option>Smarphone</option>
+                            <option>Smartphone</option>
                         </select>
                     </div>
                 </div>
             </div>
-
+            
             <div class="col-md-6">
                 <div class="second-line">
                     <div class="custom-select-container">
-                        <label for="selectCaja" class="custom-select-label">Tipo de Documento:</label>
-                        <select class="form-select">
+                        <label for="selectDocumento" class="custom-select-label">Tipo de Documento:</label>
+                        <select id="selectDocumento" class="form-select">
                             <option>Seleccione</option>
                             <option>Factura</option>
                             <option>Recibo</option>
@@ -112,6 +113,7 @@
                     </div>
                 </div>
             </div>
+            
 
         </div>
 
@@ -132,8 +134,9 @@
             <div class="row mb-8">
                 <div class="col text-end">
                     <button type="button" class="btn btn-secondary">Salir</button>
-                    <button type="button" class="btn btn-primary" onclick="guardarYRedirigir()">Guardar</button>
-                   
+                    <button type="button" id="acceso" class="btn btn-primary" onclick="guardarYRedirigir()">Guardar</button>
+
+
 
                 </div>
             </div>
