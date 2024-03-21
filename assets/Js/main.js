@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let usuarios = [{
+  let usuarios = [
+    {
       usuario: "usuario1",
       contraseña: "contraseña1",
       perfil: {
@@ -61,36 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   ];
 
-  // Función para mostrar el perfil del usuario en pantalla
-  function mostrarPerfil(usuario) {
-    document.getElementById("nombreUsuario").innerText = usuario.perfil.nombre;
-    document.getElementById("rutUsuario").innerText = usuario.perfil.rut;
-    document.getElementById("correoUsuario").innerText = usuario.perfil.correo;
-    document.getElementById("direccionUsuario").innerText =
-      usuario.perfil.direccion;
-
-  }
-
-  // Agrega el evento click al enlace "Ver mi perfil"
-const verPerfilLink = document.getElementById("verPerfil");
-if (verPerfilLink) {
-  verPerfilLink.addEventListener("click", function (event) {
-    event.preventDefault();
-    // Obtén el índice del usuario desde la URL o de alguna otra manera que necesites
-    // En este ejemplo, se asume que solo hay un usuario y se utiliza el índice 0.
-    const index = 0; // Cambia esto según tus necesidades
-    mostrarPerfil(index);
-  });
-}
-
-
-  let intentosRestantes = 5;
-
-  // Función para reiniciar el formulario
-  function resetForm() {
-    // Implementa la lógica para reiniciar el formulario si es necesario
-  }
-
   // Función para autenticar al usuario
   function autenticarUsuario(event) {
     event.preventDefault();
@@ -114,9 +85,15 @@ if (verPerfilLink) {
         resetForm();
       }
     } else {
+      // Guardar el usuario autenticado en sessionStorage
+      sessionStorage.setItem("usuarioAutenticado", JSON.stringify(usuarioValido));
+      // Redirigir al menú de cajas
       window.location.href = './pages/Menu-de-caja.html';
     }
   }
+
+  // Inicializar intentos restantes
+  let intentosRestantes = 4; // Cambia este valor según el número deseado de intentos
 
   // Llama a autenticarUsuario si quedan intentos restantes
   if (intentosRestantes > 0) {
@@ -128,211 +105,18 @@ if (verPerfilLink) {
   if (loginForm) {
     loginForm.addEventListener("submit", autenticarUsuario);
   }
-// Por ejemplo, para mostrar el perfil del primer usuario en la lista
-mostrarPerfil(usuarios[0]);
 
-});
+  // Función para reiniciar el formulario
+  function resetForm() {
+    // Implementa la lógica para reiniciar el formulario si es necesario
+  }
 
-document.addEventListener("DOMContentLoaded", function () {
   const botonGuardar = document.getElementById("acceso");
 
   botonGuardar.addEventListener("click", function () {
     guardarYRedirigir();
   });
 
-  function obtenerValorSelect(idSelect) {
-    const selectElement = document.getElementById(idSelect);
-    return selectElement.options[selectElement.selectedIndex].text;
-  }
-
-  function validarCampos() {
-    empresa = obtenerValorSelect('selectEmpresa');
-    caja = obtenerValorSelect('selectCaja');
-    imprimir = obtenerValorSelect('selectImprimir');
-    tipoDocumento = obtenerValorSelect('selectDocumento');
-    monto = parseFloat(document.getElementById('monto').value);
-
-    switch (true) {
-      case (empresa === 'Seleccione' || caja === 'Seleccione' || imprimir === 'Seleccione' || tipoDocumento === 'Seleccione'):
-        alert('Por favor, seleccione todas las opciones antes de continuar.');
-        return false;
-      case (monto <= 0 || isNaN(monto)):
-        alert('Ingrese un monto válido mayor que cero.');
-        return false;
-      default:
-        return true;
-    }
-  }
-
-  function guardarYRedirigir() {
-    if (validarCampos()) {
-      alert('Datos válidos. Guardando y redirigiendo desde la pantalla de caja...');
-      window.location.href = './dashboard.html';
-    }
-  }
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-  const tablaProductos = document.getElementById('tablaProductos');
-
-
-  class Producto {
-      constructor(id, nombre, precio, stock) {
-          this.id = id;  
-          this.nombre = nombre;
-          this.precio = precio;
-          this.stock = stock;
-      }
-
-      vender(cantidad) {
-          this.stock -= cantidad;
-          return this.precio * cantidad;
-      }
-  }
-
-  const productos = [
-      new Producto(1, "Aceite Belmont 1lt", 4000, 800),
-      new Producto(2, "Coca Cola 3lts", 3000, 500),
-      new Producto(3, "Lavalozas Quix 1lt", 2850, 700),
-      new Producto(4, "Leche Soprole Chocolate 1lt", 1200, 1200),
-      new Producto(5, "Galletas Oreo Chocolate", 850, 80),
-      new Producto(6, "Arroz Miraflores Granel", 1600, 980),
-      new Producto(7, "Papel Higiénico Suave 4 rollos", 2000, 450),
-      new Producto(8, "Manzanas Royal Gala (kg)", 3500, 600),
-      new Producto(9, "Jabón Dove 100g", 1200, 250),
-      new Producto(10, "Atún en lata 160g", 2500, 560),
-  ];
-
-  function cargarProductos() {
-      productos.forEach(function(producto) {
-          const fila = document.createElement('tr');
-          fila.id = `producto${producto.id}`;
-
-          const celdaNombre = document.createElement('td');
-          const celdaPrecio = document.createElement('td');
-          const celdaCantidad = document.createElement('td');
-
-          celdaNombre.textContent = producto.nombre;
-          celdaPrecio.textContent = `$${producto.precio.toFixed(2)}`;
-          celdaCantidad.textContent = producto.stock;
-
-          fila.appendChild(celdaNombre);
-          fila.appendChild(celdaPrecio);
-          fila.appendChild(celdaCantidad);
-
-          tablaProductos.appendChild(fila);
-      });
-  }
-
-  cargarProductos();  
-});
-
-
-// Llama a la función para cargar productos para categorias
-document.addEventListener('DOMContentLoaded', function () {
-  const categories = document.querySelectorAll('.category');
-  const itemGroups = document.querySelectorAll('.item-group');
-
-  categories.forEach(function (category) {
-      category.addEventListener('click', function () {
-          // Remueve la clase 'active' de todas las categorías
-          categories.forEach(function (c) {
-              c.classList.remove('active');
-          });
-
-          // Agrega la clase 'active' a la categoría seleccionada
-          category.classList.add('active');
-
-          // Filtra los productos según la categoría seleccionada
-          const selectedCategory = category.dataset.category;
-
-          itemGroups.forEach(function (group) {
-              if (group.id === selectedCategory || selectedCategory === 'todos') {
-                  group.style.display = 'block';
-              } else {
-                  group.style.display = 'none';
-              }
-          });
-      });
-  });
-
-  // Muestra inicialmente los productos de la categoría "Aceites"
-  const initialCategory = 'aceites';
-  categories.forEach(function (category) {
-      if (category.dataset.category === initialCategory) {
-          category.classList.add('active');
-      }
-  });
-
-  itemGroups.forEach(function (group) {
-      if (group.id === initialCategory) {
-          group.style.display = 'block';
-      } else {
-          group.style.display = 'none';
-      }
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const carrito = document.getElementById("carrito");
-  const historialComprasList = document.getElementById("historialCompras");
-  const totalCompraText = document.getElementById("totalCompra");
-  const realizarCompraBtn = document.getElementById("realizarCompraBtn");
-
-  let historialCompras = [];
-  let totalCompra = 0;
-
-  realizarCompraBtn.addEventListener("click", realizarCompra);
-
-  function cargarProductos() {
-    // Implementa la lógica para cargar productos en la interfaz aquí
-    // Retorna la información del producto seleccionado
-  }
-
-  function actualizarCarrito() {
-    historialComprasList.innerHTML = "";
-    historialCompras.forEach((compra, index) => {
-      const listItem = document.createElement("li");
-      listItem.textContent = `Compra ${index + 1}: ${compra.cantidad}x ${compra.producto} - $${compra.precio.toFixed(2)}`;
-      historialComprasList.appendChild(listItem);
-    });
-
-    totalCompraText.textContent = `Total de la compra: $${totalCompra.toFixed(2)}`;
-  }
-
-  function realizarCompra() {
-    do {
-      const productoInfo = cargarProductos();
-
-      let cantidad = parseInt(prompt(`¿Cuántas cantidades del ${productoInfo.producto} desea llevar?`));
-
-      historialCompras.push({
-        producto: productoInfo.producto,
-        precio: productoInfo.precio,
-        cantidad: cantidad
-      });
-
-      totalCompra = totalCompra + productoInfo.precio * cantidad;
-
-      let continuar = confirm('¿Desea agregar otro producto al carrito de compras?');
-
-      if (!continuar) {
-        break;
-      }
-    } while (true);
-
-    const iva = totalCompra * 0.19;
-    const totalConIVA = totalCompra + iva;
-
-    alert(`El total de tu compra (con IVA) fue de $${totalConIVA.toFixed(2)}`);
-
-    // Implementa la lógica para actualizar el inventario aquí
-
-    // Actualiza la interfaz del carrito
-    actualizarCarrito();
-
-    // Implementa la lógica para enviar factura y mostrar información del cliente aquí
-  }
+  
 });
 

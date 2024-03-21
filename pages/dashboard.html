@@ -27,7 +27,6 @@
 
 
     <nav>
-
         <ul>
             <li><img src="../assets/img/logo/logo-blanco.png" alt="Logo de la Marca"
                     style="width: 150px; height: auto;"></li>
@@ -36,16 +35,16 @@
             <li><a href="./ventas-del-dia.html"><i class="fas fa-chart-line fa-sm"></i> Ventas del día</a></li>
             <li><a href="./cerrar-caja.html"><img src="../assets/img/iconos/caja-de-seguridad.png" style="width: 20px;"
                         alt="Cerrar Caja" class="imagen-pequena"> Cerrar Caja</a></li>
-            <li><a href="./Ver-mi perfil.html"><i class="fas fa-user fa-sm"></i> Ver Perfil de Usuario</a></li>
+            <!-- Cambiaremos este elemento a un dropdown -->
+
             <li><a href="../index.html"><i class="fas fa-sign-out-alt fa-sm" style="margin-right: 10px;"></i> Cerrar
                     Sesión</a></li>
         </ul>
-
     </nav>
 
     <div class="search">
         <input type="search" placeholder="Search..." id="searchInput" />
-        <button type="button" class="btn btn-login align-self-center" onclick="buscar()">Buscar</button>
+
     </div>
 
 
@@ -68,89 +67,250 @@
 
             </div>
 
-            <div class="item-group-wrapper">
+            <div class="wrappers">
+                <div class="row">
 
-                <div class="item-group" id="aceites">
-                    <div class="product-info">
-                        <img src="../assets/img/productos/img-1.jpeg" alt="Aceite Belmont 1lt">
-                        <a href="#" class="item" data-product-id="1">Aceite Belmont 1lt</a>
-                        <button class="btn-primary" data-product-id="1">Agregar</button>
+                    <div class="item-group" id="aceites">
+                        <div class="card">
+                            <div class="image">
+                                <img src="../assets/img/productos/img-1.jpeg" alt="Aceite Belmont 1lt">
+
+                            </div>
+                            <div class="product">
+                                <span class="product-name">Aceite Belmont 1lt</span>
+
+                            </div>
+
+                            <div class="description">
+
+                            </div>
+                            <div class="price">
+                                <div>
+
+                                    <span class="now-price">$4.000</span>
+                                </div>
+                                <button>Añadir al carro</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            
-                <div class="item-group" id="bebidas">
-                    <div class="product-info">
-                        <img src="../assets/img/productos/img-2.jpeg" alt="Coca Cola 3lts">
-                        <a href="#" class="item" data-product-id="2">Coca Cola 3lts</a>
-                        <button class="btn-primary" data-product-id="2">Agregar</button>
+
+                    <div class="item-group" id="bebidas">
+                        <div class="card">
+                            <div class="image">
+                                <img src="../assets/img/productos/img-2.jpeg" alt="Coca Cola 3lts">
+                            </div>
+                            <div class="product">
+                                <span class="product-name">Coca Cola 3lts</span>
+
+                            </div>
+
+                            <div class="description">
+
+                            </div>
+                            <div class="price">
+                                <div>
+
+                                    <span class="now-price">$3.000</span>
+                                </div>
+                                <button>Añadir al carro</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            
-                <div class="item-group" id="limpieza">
-                    <div class="product-info">
-                        <img src="../assets/img/productos/img-3.jpeg" alt="Lavalozas Quix 1lt">
-                        <a href="#" class="item" data-product-id="3">Lavalozas Quix 1lt</a>
-                        <button class="btn-primary" data-product-id="3">Agregar</button>
+
+
+                    <div class="item-group" id="limpieza">
+                        <div class="card">
+                            <div class="image">
+                                <img src="../assets/img/productos/img-3.jpeg" alt="Lavalozas Quix 1lt">
+                            </div>
+                            <div class="product">
+                                <span class="product-name">Lavalozas Quix 1lt</span>
+
+                            </div>
+
+                            <div class="description">
+
+                            </div>
+                            <div class="price">
+                                <div>
+
+                                    <span class="now-price">$2.850</span>
+                                </div>
+                                <button>Añadir al carro</button>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-            
-                <div class="item-group" id="lacteos">
-                    <div class="product-info">
-                        <img src="../assets/img/productos/img-4.jpeg" alt="Leche Soprole Chocolate 1lt">
-                        <a href="#" class="item" data-product-id="4">Leche Soprole Chocolate 1lt</a>
-                        <button class="btn-primary" data-product-id="4">Agregar</button>
+
+
+                    <div class="item-group" id="lacteos">
+                        <div class="card">
+                            <div class="image">
+                                <img src="../assets/img/productos/img-4.jpeg" alt="Leche Soprole Chocolate 1lt">
+                            </div>
+                            <div class="product">
+                                <span class="product-name">Leche Chocolate 1lt</span>
+
+                            </div>
+
+                            <div class="description">
+
+                            </div>
+                            <div class="price">
+                                <div>
+
+                                    <span class="now-price">$1.200</span>
+                                </div>
+                                <button>Añadir al carro</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            
-                <div class="item-group" id="snacks">
-                    <div class="product-info">
-                        <img src="../assets/img/productos/img-5.jpeg" alt="Galletas Oreo Chocolate">
-                        <a href="#" class="item" data-product-id="5">Galletas Oreo Chocolate</a>
-                        <button class="btn-primary" data-product-id="5">Agregar</button>
+
+
+                    <div class="item-group" id="snacks">
+                        <div class="card">
+                            <div class="image">
+                                <img src="../assets/img/productos/img-5.jpeg" alt="Galletas Oreo Chocolate">
+                            </div>
+                            <div class="product">
+                                <span class="product-name">Galletas Oreo Chocolate</span>
+
+                            </div>
+
+                            <div class="description">
+
+                            </div>
+                            <div class="price">
+                                <div>
+
+                                    <span class="now-price">$850</span>
+                                </div>
+                                <button>Añadir al carro</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            
-                <div class="item-group" id="granos">
-                    <div class="product-info">
-                        <img src="../assets/img/productos/img-6.jpeg" alt="Arroz Miraflores Granel">
-                        <a href="#" class="item" data-product-id="6">Arroz Miraflores Granel</a>
-                        <button class="btn-primary" data-product-id="6">Agregar</button>
+
+                    <div class="item-group" id="granos">
+                        <div class="card">
+                            <div class="image">
+                                <img src="../assets/img/productos/img-6.jpeg" alt="Arroz Miraflores Granel">
+                            </div>
+                            <div class="product">
+                                <span class="product-name">Arroz Granel 1kg </span>
+
+                            </div>
+
+                            <div class="description">
+
+                            </div>
+                            <div class="price">
+                                <div>
+
+                                    <span class="now-price">$1.600</span>
+                                </div>
+                                <button>Añadir al carro</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            
-                <div class="item-group" id="papeleria">
-                    <div class="product-info">
-                        <img src="../assets/img/productos/img-7.jpeg" alt="Papel Higiénico Suave 4 rollos">
-                        <a href="#" class="item" data-product-id="7">Papel Higiénico Suave 4 rollos</a>
-                        <button class="btn-primary" data-product-id="7">Agregar</button>
+
+                    <div class="item-group" id="papeleria">
+                        <div class="card">
+                            <div class="image">
+                                <img src="../assets/img/productos/img-7.jpeg" alt="Papel Higiénico Suave 4 rollos">
+                            </div>
+                            <div class="product">
+                                <span class="product-name">Papel Higiénico</span>
+
+                            </div>
+
+                            <div class="description">
+
+                            </div>
+                            <div class="price">
+                                <div>
+
+                                    <span class="now-price">$2.000</span>
+                                </div>
+                                <button>Añadir al carro</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            
-                <div class="item-group" id="frutas">
-                    <div class="product-info">
-                        <img src="../assets/img/productos/img-8.jpeg" alt="Manzanas Royal Gala (kg)">
-                        <a href="#" class="item" data-product-id="8">Manzanas Royal Gala (kg)</a>
-                        <button class="btn-primary" data-product-id="8">Agregar</button>
+
+                    <div class="item-group" id="frutas">
+                        <div class="card">
+                            <div class="image">
+                                <img src="../assets/img/productos/img-8.jpeg" alt="Manzanas Royal Gala (kg)">
+                            </div>
+                            <div class="product">
+                                <span class="product-name">Manzanas Royal 1kg</span>
+
+                            </div>
+
+                            <div class="description">
+
+                            </div>
+                            <div class="price">
+                                <div>
+
+                                    <span class="now-price">$3.500</span>
+                                </div>
+                                <button>Añadir al carro</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            
-                <div class="item-group" id="cuidado">
-                    <div class="product-info">
-                        <img src="../assets/img/productos/img-9.jpeg" alt="Jabón Dove 100g">
-                        <a href="#" class="item" data-product-id="9">Jabón Dove 100g</a>
-                        <button class="btn-primary" data-product-id="9">Agregar</button>
+
+                    <div class="item-group" id="cuidado">
+                        <div class="card">
+                            <div class="image">
+                                <img src="../assets/img/productos/img-9.jpeg" alt="Jabón Dove 100g">
+                            </div>
+                            <div class="product">
+                                <span class="product-name">Jabón Dove 100g</span>
+
+                            </div>
+
+                            <div class="description">
+
+                            </div>
+                            <div class="price">
+                                <div>
+
+                                    <span class="now-price">$1.200</span>
+                                </div>
+                                <button>Añadir al carro</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            
-                <div class="item-group" id="conservas">
-                    <div class="product-info">
-                        <img src="../assets/img/productos/img-10.jpeg" alt="Atún en lata 160g">
-                        <a href="#" class="item" data-product-id="10">Atún en lata 160g</a>
-                        <button class="btn-primary" data-product-id="10">Agregar</button>
+
+                    <div class="item-group" id="conservas">
+                        <div class="card">
+                            <div class="image">
+                                <img src="../assets/img/productos/img-10.jpeg" alt="Atún en lata 160g">
+                            </div>
+                            <div class="product">
+                                <span class="product-name">Atún en lata 160g</span>
+
+                            </div>
+
+                            <div class="description">
+
+                            </div>
+                            <div class="price">
+                                <div>
+
+                                    <span class="now-price">$2.500</span>
+                                </div>
+                                <button>Añadir al carro</button>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
-                
             </div>
+
+
+
+
         </div>
 
 
@@ -163,71 +323,51 @@
                 </button>
                 <div class="mx-2"></div> <!-- Espacio entre botones -->
                 <button class="btn btn-danger" id="btnBorrarVenta">
-                    <i class="fas fa-trash-alt"></i> Borrar Venta
+                    <i class="fas fa-trash-alt"></i> Borrar toda la Venta
                 </button>
             </div>
-        
+
             <div class="register">
                 <!-- Carrito de Compras -->
-                <div id="carrito">
-                    <h2>Carrito de Compras</h2>
-                    <ul id="historialCompras"></ul>
-                    <p id="totalCompra"></p>
+                <div id="carrito" style="text-align: center; font-weight: bold; max-width: 100%;">
+                    <h3> carro de compras</h3>
+
+
                 </div>
-        
-                <!-- Otros elementos de tu interfaz de usuario -->
-        
-                <div class="products">
-                    <div class="product-bar selected">
-                        <span>Producto</span>
-                        <span>$0.00</span>
-                    </div>
-                    <div class="product-bar">
-                        <span>Producto</span>
-                        <span>$0.00</span>
-                    </div>
-                </div>
-        
+
                 <ul id="historialCompras"></ul>
                 <div class="pay-button">
-                    <a href="#">Total a pagar</a>
+                    <a href="#" id="btnPagar">Total a pagar: <span id="precioTotal"></span></a>
                 </div>
             </div>
         </div>
 
+    </div>
+
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <!-- nav.js -->
+    <script src="../assets/Js/nav.js"></script>
+
+    <!-- cargar productos.js -->
+    <script src="../assets/Js/cargarProductos.js"></script>
+
+    <!-- carrito.js -->
+    <script src="../assets/Js/Carrito-de-compras.js"></script>
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-            integrity="sha384-nvEwYbNmHi3yo33a1+BqJSxTEG0Q2LBrM2Lp3XaDJHgx2RR1/mFDWhR6H18maTYY" crossorigin="anonymous">
-        </script>
-
-        <!-- main.js -->
-        <script src="../assets/Js/main.js"></script>
-
-        <!-- Bootstrap Validator -->
-        <script src="https://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.11.5/js/bootstrapValidator.min.js">
-        </script>
-
-
-
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-            AOS.init();
-        </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 
 </body>
 
