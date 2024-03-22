@@ -488,29 +488,29 @@ margin-left: 10px;
 background: transparent;
 }
 .wrappers {
-  max-height: 490px; /* Altura máxima del contenedor */
-  overflow-y: auto; /* Habilita el desplazamiento vertical cuando hay más contenido */
+  max-height: 490px; 
+  overflow-y: auto; 
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Distribuye uniformemente las columnas */
-  gap: 20px; /* Espacio entre las columnas */
+  justify-content: space-between; 
+  gap: 18px; 
 }
 
 .item-group {
-  flex: 0 0 calc(33.333% - 20px); /* Tamaño de las columnas para que haya tres columnas en una fila */
-  max-width: calc(33.333% - 20px); /* Tamaño máximo de las columnas */
-  margin-bottom: 20px; /* Espacio entre las filas */
+  flex: 0 0 calc(33.333% - 20px); 
+  max-width: calc(33.333% - 20px); 
+  margin-bottom: 1px; 
 }
 
 .card {
   flex: 0 0 calc(20.333% - 20px);
-  min-width: 260px; /* Ancho mínimo para las tarjetas */
+  min-width: 260px; 
   height: auto;
   border: 1px solid black;
   border-radius: 8px;
   overflow: hidden;
   transition: 0.2s linear;
-  margin-bottom: 30px; 
+  margin-bottom: 15px; 
   background-color: #2c5d70;
   margin-left: 10px; 
   margin-right: 10px; 
@@ -521,7 +521,7 @@ background: transparent;
 
 /* Ajustamos el margen derecho de todas las tarjetas cuando hay menos de tres por fila */
 .wrappers .card:nth-last-child(-n+2) {
-  margin-right: 10px; /* Espacio entre las tarjetas */
+  margin-right: 10px; 
   width: calc(100% - 10px);
 }
 
