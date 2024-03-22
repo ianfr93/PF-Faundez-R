@@ -494,7 +494,6 @@ background: transparent;
   flex-wrap: wrap;
   justify-content: space-between; /* Distribuye uniformemente las columnas */
   gap: 20px; /* Espacio entre las columnas */
-;
 }
 
 .item-group {
@@ -623,42 +622,50 @@ td span {
   
 }
 
+/* Contenedor principal de la tabla de productos */
 #historialCompras {
-  max-height: 400px; 
+  max-height: 410px; 
   overflow-y: auto; 
+}
+
+/* Contenedor adicional para la tabla de productos */
+#tablaProductos {
+  position: sticky; /* Fija la tabla en su posición cuando se desplaza */
+  top: 0; /* Posición inicial desde arriba */
+  background-color: white; /* Fondo blanco para cubrir los elementos debajo */
+  z-index: 1; /* Asegura que la tabla esté por encima de otros elementos */
+
 }
 
 /* Estilos para los elementos de la tabla */
 #historialCompras table {
-  width: 30%; 
-  border-collapse: collapse; 
-  margin-bottom: 20px; 
- 
-
+  width: 100%; /* Ancho completo */
+  border-collapse: collapse; /* Borra los bordes entre celdas */
 }
 
 /* Estilos para las filas de la tabla */
 #historialCompras table tr {
-  border-bottom: 1px solid #ddd; 
+  border-bottom: 1px solid #ddd; /* Borde inferior de las filas */
 }
 
 /* Estilos para las celdas de la tabla */
 #historialCompras table td {
-  padding: 10px; 
-  text-align: left; 
+  padding: 10px; /* Espaciado interno */
+  text-align: left; /* Alineación del texto a la izquierda */
+  
 }
 
 /* Estilos para los datos específicos de la tabla */
 #historialCompras table td.producto {
-  width: 60%; 
+  width: 60%; /* Ancho del campo de producto */
 }
 
 #historialCompras table td.cantidad,
 #historialCompras table td.precio {
-  width: 20%; 
-  text-align: center; 
-
+  width: 20%; /* Ancho del campo de cantidad y precio */
+  text-align: center; /* Alineación del texto al centro */
 }
+
 
 
 .item-group .card .price button:hover {
