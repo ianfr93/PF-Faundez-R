@@ -1,7 +1,7 @@
 // Función para calcular el total de la venta
 function calcularTotal(productos) {
   let total = 0;
-  productos.forEach(function(producto) {
+  productos.forEach(function (producto) {
     total += producto.precio * producto.cantidad;
   });
   return total;
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Obtener información del producto
     let nombreProducto = producto.querySelector('.product-name').textContent;
     let precioProducto = parseFloat(producto.querySelector('.now-price').textContent.replace('$', ''));
-    
+
     // Buscar si el producto ya está en el carrito
     let productoExistente = carrito.find(item => item.nombre === nombreProducto);
 
@@ -74,9 +74,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let carrito = obtenerCarrito();
     let indice = carrito.findIndex(item => item.nombre === nombreProducto);
     if (indice !== -1) {
-      carrito.splice(indice, 1); // Eliminar el producto del carrito
-      localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualizar el carrito en localStorage
-      actualizarCarritoUI(carrito); // Actualizar la interfaz de usuario
+      carrito.splice(indice, 1);
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      actualizarCarritoUI(carrito);
     }
   }
 
@@ -86,8 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let producto = carrito.find(item => item.nombre === nombreProducto);
     if (producto) {
       producto.cantidad += 1; // Incrementar la cantidad
-      localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualizar el carrito en localStorage
-      actualizarCarritoUI(carrito); // Actualizar la interfaz de usuario
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      actualizarCarritoUI(carrito);
     }
   }
 
@@ -97,8 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let producto = carrito.find(item => item.nombre === nombreProducto);
     if (producto && producto.cantidad > 1) {
       producto.cantidad -= 1; // Decrementar la cantidad
-      localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualizar el carrito en localStorage
-      actualizarCarritoUI(carrito); // Actualizar la interfaz de usuario
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      actualizarCarritoUI(carrito);
     }
   }
 
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function borrarVenta() {
     // Limpiar el carrito en localStorage
     localStorage.removeItem('carrito');
-    // Actualizar la interfaz de usuario para reflejar que el carrito está vacío
+
     actualizarCarritoUI([]);
   }
 
@@ -114,21 +114,21 @@ document.addEventListener("DOMContentLoaded", function () {
   function obtenerCarrito() {
     let carrito = localStorage.getItem('carrito');
     if (!carrito) {
-      // Si no hay datos en el localStorage, devolver un array vacío
+
       return [];
     }
     return JSON.parse(carrito);
   }
 
- // Recuperar el carrito al cargar la página
- let carrito = obtenerCarrito();
- actualizarCarritoUI(carrito);
+  // Recuperar el carrito al cargar la página
+  let carrito = obtenerCarrito();
+  actualizarCarritoUI(carrito);
 
   // Función para actualizar la interfaz de usuario con el contenido del carrito
   function actualizarCarritoUI(carrito) {
     let historialCompras = document.getElementById('historialCompras');
     if (historialCompras) {
-      historialCompras.innerHTML = ''; // Limpiar el contenido anterior del carrito
+      historialCompras.innerHTML = '';
       let totalCompra = 0;
 
       // Crear la tabla para mostrar los productos en el carrito
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let celdaProducto = filaCabecera.insertCell();
       let celdaCantidad = filaCabecera.insertCell();
       let celdaPrecio = filaCabecera.insertCell();
-      
+
 
       // Agregar elementos span para separar visualmente los textos en las celdas
       celdaProducto.innerHTML = '<span>Producto</span>';
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let celdaNombre = filaProducto.insertCell();
         let celdaCantidad = filaProducto.insertCell();
         let celdaPrecio = filaProducto.insertCell();
-        let celdaEliminar = filaProducto.insertCell(); // Nueva celda para el botón de eliminar
+        let celdaEliminar = filaProducto.insertCell();
 
         celdaNombre.textContent = producto.nombre;
 
@@ -178,13 +178,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         celdaCantidad.appendChild(botonAumentar);
 
-        celdaPrecio.textContent = '$' + (producto.precio * producto.cantidad).toFixed(2); 
+        celdaPrecio.textContent = '$' + (producto.precio * producto.cantidad).toFixed(2);
 
         // Ícono de eliminación
         let iconoEliminar = document.createElement('i');
         iconoEliminar.classList.add('fas', 'fa-trash-alt', 'eliminar-icon');
         iconoEliminar.addEventListener('click', function () {
-          eliminarProductoCarrito(producto.nombre); // Llamar a la función para eliminar el producto
+          eliminarProductoCarrito(producto.nombre);
         });
         celdaEliminar.appendChild(iconoEliminar);
 
@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let btnPagar = document.getElementById('btnPagar');
   if (btnPagar) {
     btnPagar.addEventListener('click', function (event) {
-      event.preventDefault(); 
+      event.preventDefault();
 
       realizarPago();
     });
@@ -223,13 +223,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para realizar el pago
   function realizarPago() {
-    let productos = obtenerCarrito(); 
-    let total = calcularTotal(productos); 
-    
+    let productos = obtenerCarrito();
+    let total = calcularTotal(productos);
+
     // Mostrar información de la venta en la consola
     console.log("Venta realizada:");
     console.log("Lista de productos:");
-    productos.forEach(function(producto) {
+    productos.forEach(function (producto) {
       console.log(producto.nombre + " - Cantidad: " + producto.cantidad + " - Precio unitario: $" + producto.precio.toFixed(2) + " - Total: $" + (producto.precio * producto.cantidad).toFixed(2));
     });
     console.log("Total de la venta: $" + total.toFixed(2));
@@ -240,13 +240,13 @@ document.addEventListener("DOMContentLoaded", function () {
       alert('No puedes realizar el pago porque el carrito está vacío.');
     } else {
       // Descontar el stock de los productos vendidos
-      productos.forEach(function(producto) {
+      productos.forEach(function (producto) {
         descontarStock(producto.nombre, producto.cantidad);
       });
 
       // Mostrar mensaje de alerta indicando que el pago se ha realizado con éxito
       alert('Pago realizado con éxito. ¡Gracias por tu compra!');
-      
+
       // Limpiar el carrito después del pago exitoso
       borrarVenta();
     }

@@ -718,16 +718,6 @@ td span {
 }
 
 
-
-/* Contenedor adicional para la tabla de productos */
-#tablaProductos {
-  position: sticky;
-  top: 0;
-  background-color: white;
-  z-index: 1;
-
-}
-
 #historialCompras {
   padding-top: 20px;
   width: 100%;
@@ -738,14 +728,13 @@ td span {
 
 .carrito-table thead {
   position: sticky;
-  top: 0;
-  background-color: #f8f9fa;
+  top: 20px; /* Puedes ajustar este valor según sea necesario */
+  background-color: #f8f9fa; 
 }
-
 /* Estilos para los elementos de la tabla */
 .table {
   border-collapse: collapse;
-
+  
 }
 
 /* Estilos para las filas de la tabla */
@@ -826,6 +815,13 @@ td span {
   /* Ocultar el botón de hamburguesa por defecto */
 }
 
+#loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Asegurarse de que el indicador esté en la parte superior */
+}
 
 
 @media only screen and (max-width: 900px) {
