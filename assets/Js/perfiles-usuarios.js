@@ -1,9 +1,9 @@
 // Función para cargar los datos del usuario desde localStorage
 function cargarDatosUsuario() {
-    var nombre = localStorage.getItem("nombreUsuario");
-    var rut = localStorage.getItem("rutUsuario");
-    var correo = localStorage.getItem("correoUsuario");
-    var direccion = localStorage.getItem("direccionUsuario");
+    let nombre = localStorage.getItem("nombreUsuario");
+    let rut = localStorage.getItem("rutUsuario");
+    let correo = localStorage.getItem("correoUsuario");
+    let direccion = localStorage.getItem("direccionUsuario");
 
     // Mostrar los datos en los elementos HTML
     document.getElementById("nombreUsuario").innerText = nombre;
@@ -14,10 +14,10 @@ function cargarDatosUsuario() {
 
 // Función para guardar los datos del usuario en localStorage
 function guardarDatosUsuario() {
-    var nombre = document.querySelector('input[name="first_name"]').value;
-    var rut = document.querySelector('input[name="last_name"]').value;
-    var correo = document.querySelector('input[name="email"]').value;
-    var direccion = document.querySelector('input[name="phone"]').value;
+    let nombre = document.querySelector('input[name="first_name"]').value;
+    let rut = document.querySelector('input[name="last_name"]').value;
+    let correo = document.querySelector('input[name="email"]').value;
+    let direccion = document.querySelector('input[name="phone"]').value;
 
     // Guardar los datos en localStorage
     localStorage.setItem("nombreUsuario", nombre);

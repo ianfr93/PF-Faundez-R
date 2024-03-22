@@ -639,8 +639,9 @@ td span {
 
 /* Estilos para los elementos de la tabla */
 #historialCompras table {
-  width: 100%; /* Ancho completo */
+  width: 10%; /* Ancho completo */
   border-collapse: collapse; /* Borra los bordes entre celdas */
+  
 }
 
 /* Estilos para las filas de la tabla */

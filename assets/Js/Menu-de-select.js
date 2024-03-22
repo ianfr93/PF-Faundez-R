@@ -4,21 +4,21 @@ function obtenerValorSelect(idSelect) {
 }
 
 function validarCampos() {
-  empresa = obtenerValorSelect('selectEmpresa');
-  caja = obtenerValorSelect('selectCaja');
-  imprimir = obtenerValorSelect('selectImprimir');
-  tipoDocumento = obtenerValorSelect('selectDocumento');
-  monto = parseFloat(document.getElementById('monto').value);
+  let empresa = obtenerValorSelect('selectEmpresa');
+  let caja = obtenerValorSelect('selectCaja');
+  let imprimir = obtenerValorSelect('selectImprimir');
+  let tipoDocumento = obtenerValorSelect('selectDocumento');
+  let monto = parseFloat(document.getElementById('monto').value);
 
   switch (true) {
-      case (empresa === 'Seleccione' || caja === 'Seleccione' || imprimir === 'Seleccione' || tipoDocumento === 'Seleccione'):
-          alert('Por favor, seleccione todas las opciones antes de continuar.');
-          return false;
-      case (monto <= 0 || isNaN(monto)):
-          alert('Ingrese un monto válido mayor que cero.');
-          return false;
-      default:
-          return true;
+    case (empresa === 'Seleccione' || caja === 'Seleccione' || imprimir === 'Seleccione' || tipoDocumento === 'Seleccione'):
+      alert('Por favor, seleccione todas las opciones antes de continuar.');
+      return false;
+    case (monto <= 0 || isNaN(monto)):
+      alert('Ingrese un monto válido mayor que cero.');
+      return false;
+    default:
+      return true;
   }
 }
 

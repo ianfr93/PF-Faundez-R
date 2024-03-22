@@ -1,6 +1,6 @@
 // Función para calcular el total de la venta
 function calcularTotal(productos) {
-  var total = 0;
+  let total = 0;
   productos.forEach(function(producto) {
     total += producto.precio * producto.cantidad;
   });
@@ -11,20 +11,20 @@ function descontarStock(nombreProducto, cantidad) {
   console.log("Descontando stock de " + nombreProducto + " en " + cantidad + " unidades.");
 
   // Actualizar el stock en el localStorage
-  var stockActual = localStorage.getItem(nombreProducto);
+  let stockActual = localStorage.getItem(nombreProducto);
   if (stockActual) {
     stockActual = parseInt(stockActual);
-    var nuevoStock = stockActual - cantidad;
+    let nuevoStock = stockActual - cantidad;
     localStorage.setItem(nombreProducto, nuevoStock);
   }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   // Agregar evento click a los botones "Añadir al carro"
-  var botonesAgregar = document.querySelectorAll('.price button');
+  let botonesAgregar = document.querySelectorAll('.price button');
   botonesAgregar.forEach(function (boton) {
     boton.addEventListener('click', function () {
-      var producto = boton.closest('.item-group');
+      let producto = boton.closest('.item-group');
       if (producto) {
         agregarAlCarrito(producto);
       }
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Agregar evento click al botón "Borrar Venta"
-  var btnBorrarVenta = document.getElementById('btnBorrarVenta');
+  let btnBorrarVenta = document.getElementById('btnBorrarVenta');
   if (btnBorrarVenta) {
     btnBorrarVenta.addEventListener('click', function () {
       borrarVenta();
@@ -41,20 +41,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para agregar producto al carrito
   function agregarAlCarrito(producto) {
-    var carrito = obtenerCarrito();
+    let carrito = obtenerCarrito();
     // Obtener información del producto
-    var nombreProducto = producto.querySelector('.product-name').textContent;
-    var precioProducto = parseFloat(producto.querySelector('.now-price').textContent.replace('$', ''));
+    let nombreProducto = producto.querySelector('.product-name').textContent;
+    let precioProducto = parseFloat(producto.querySelector('.now-price').textContent.replace('$', ''));
     
     // Buscar si el producto ya está en el carrito
-    var productoExistente = carrito.find(item => item.nombre === nombreProducto);
+    let productoExistente = carrito.find(item => item.nombre === nombreProducto);
 
     if (productoExistente) {
       // Si el producto ya está en el carrito, aumentar la cantidad
       productoExistente.cantidad += 1;
     } else {
       // Crear objeto de producto para agregar al carrito
-      var nuevoProducto = {
+      let nuevoProducto = {
         nombre: nombreProducto,
         precio: precioProducto,
         cantidad: 1
@@ -71,8 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para eliminar producto del carrito
   function eliminarProductoCarrito(nombreProducto) {
-    var carrito = obtenerCarrito();
-    var indice = carrito.findIndex(item => item.nombre === nombreProducto);
+    let carrito = obtenerCarrito();
+    let indice = carrito.findIndex(item => item.nombre === nombreProducto);
     if (indice !== -1) {
       carrito.splice(indice, 1); // Eliminar el producto del carrito
       localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualizar el carrito en localStorage
@@ -82,8 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para aumentar la cantidad de un producto en el carrito
   function aumentarCantidad(nombreProducto) {
-    var carrito = obtenerCarrito();
-    var producto = carrito.find(item => item.nombre === nombreProducto);
+    let carrito = obtenerCarrito();
+    let producto = carrito.find(item => item.nombre === nombreProducto);
     if (producto) {
       producto.cantidad += 1; // Incrementar la cantidad
       localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualizar el carrito en localStorage
@@ -93,8 +93,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para disminuir la cantidad de un producto en el carrito
   function disminuirCantidad(nombreProducto) {
-    var carrito = obtenerCarrito();
-    var producto = carrito.find(item => item.nombre === nombreProducto);
+    let carrito = obtenerCarrito();
+    let producto = carrito.find(item => item.nombre === nombreProducto);
     if (producto && producto.cantidad > 1) {
       producto.cantidad -= 1; // Decrementar la cantidad
       localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualizar el carrito en localStorage
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para obtener el carrito del localStorage
   function obtenerCarrito() {
-    var carrito = localStorage.getItem('carrito');
+    let carrito = localStorage.getItem('carrito');
     if (!carrito) {
       // Si no hay datos en el localStorage, devolver un array vacío
       return [];
@@ -122,39 +122,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para actualizar la interfaz de usuario con el contenido del carrito
   function actualizarCarritoUI(carrito) {
-    var historialCompras = document.getElementById('historialCompras');
+    let historialCompras = document.getElementById('historialCompras');
     if (historialCompras) {
       historialCompras.innerHTML = ''; // Limpiar el contenido anterior del carrito
-      var totalCompra = 0;
+      let totalCompra = 0;
 
       // Crear la tabla para mostrar los productos en el carrito
-      var tablaCarrito = document.createElement('table');
+      let tablaCarrito = document.createElement('table');
       tablaCarrito.classList.add('carrito-table');
-      var cabecera = tablaCarrito.createTHead();
-      var filaCabecera = cabecera.insertRow();
-      var celdaProducto = filaCabecera.insertCell();
-      var celdaCantidad = filaCabecera.insertCell();
-      var celdaPrecio = filaCabecera.insertCell();
-      var celdaEliminar = filaCabecera.insertCell(); // Nueva celda para el botón de eliminar
+      let cabecera = tablaCarrito.createTHead();
+      let filaCabecera = cabecera.insertRow();
+      let celdaProducto = filaCabecera.insertCell();
+      let celdaCantidad = filaCabecera.insertCell();
+      let celdaPrecio = filaCabecera.insertCell();
+      
 
       // Agregar elementos span para separar visualmente los textos en las celdas
       celdaProducto.innerHTML = '<span>Producto</span>';
       celdaCantidad.innerHTML = '<span>Cantidad</span>';
       celdaPrecio.innerHTML = '<span>Precio</span>';
 
-      var cuerpoTabla = tablaCarrito.createTBody();
+      let cuerpoTabla = tablaCarrito.createTBody();
 
       carrito.forEach(function (producto) {
-        var filaProducto = cuerpoTabla.insertRow();
-        var celdaNombre = filaProducto.insertCell();
-        var celdaCantidad = filaProducto.insertCell();
-        var celdaPrecio = filaProducto.insertCell();
-        var celdaEliminar = filaProducto.insertCell(); // Nueva celda para el botón de eliminar
+        let filaProducto = cuerpoTabla.insertRow();
+        let celdaNombre = filaProducto.insertCell();
+        let celdaCantidad = filaProducto.insertCell();
+        let celdaPrecio = filaProducto.insertCell();
+        let celdaEliminar = filaProducto.insertCell(); // Nueva celda para el botón de eliminar
 
         celdaNombre.textContent = producto.nombre;
 
         // Botón de disminuir cantidad
-        var botonDisminuir = document.createElement('button');
+        let botonDisminuir = document.createElement('button');
         botonDisminuir.textContent = '-';
         botonDisminuir.addEventListener('click', function () {
           disminuirCantidad(producto.nombre);
@@ -162,12 +162,12 @@ document.addEventListener("DOMContentLoaded", function () {
         celdaCantidad.appendChild(botonDisminuir);
 
         // Mostrar la cantidad
-        var spanCantidad = document.createElement('span');
+        let spanCantidad = document.createElement('span');
         spanCantidad.textContent = producto.cantidad;
         celdaCantidad.appendChild(spanCantidad);
 
         // Botón de aumentar cantidad
-        var botonAumentar = document.createElement('button');
+        let botonAumentar = document.createElement('button');
         botonAumentar.textContent = '+';
         botonAumentar.addEventListener('click', function () {
           aumentarCantidad(producto.nombre);
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
         celdaPrecio.textContent = '$' + (producto.precio * producto.cantidad).toFixed(2); 
 
         // Ícono de eliminación
-        var iconoEliminar = document.createElement('i');
+        let iconoEliminar = document.createElement('i');
         iconoEliminar.classList.add('fas', 'fa-trash-alt', 'eliminar-icon');
         iconoEliminar.addEventListener('click', function () {
           eliminarProductoCarrito(producto.nombre); // Llamar a la función para eliminar el producto
@@ -194,13 +194,13 @@ document.addEventListener("DOMContentLoaded", function () {
       historialCompras.appendChild(tablaCarrito);
 
       // Mostrar el total de la compra
-      var totalCompraElement = document.getElementById('totalCompra');
+      let totalCompraElement = document.getElementById('totalCompra');
       if (totalCompraElement) {
         totalCompraElement.textContent = 'Total: $' + totalCompra.toFixed(2);
       }
 
       // Mostrar el precio total en el botón "Total a pagar"
-      var precioTotalElement = document.getElementById('precioTotal');
+      let precioTotalElement = document.getElementById('precioTotal');
       if (precioTotalElement) {
         precioTotalElement.textContent = totalCompra.toFixed(2);
       }
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Agregar evento click al botón "Total a pagar"
-  var btnPagar = document.getElementById('btnPagar');
+  let btnPagar = document.getElementById('btnPagar');
   if (btnPagar) {
     btnPagar.addEventListener('click', function (event) {
       event.preventDefault(); 
@@ -219,8 +219,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para realizar el pago
   function realizarPago() {
-    var productos = obtenerCarrito(); 
-    var total = calcularTotal(productos); 
+    let productos = obtenerCarrito(); 
+    let total = calcularTotal(productos); 
     
     // Mostrar información de la venta en la consola
     console.log("Venta realizada:");

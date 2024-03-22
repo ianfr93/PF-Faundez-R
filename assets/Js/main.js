@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Llama a autenticarUsuario si quedan intentos restantes
   if (intentosRestantes > 0) {
-    autenticarUsuario(event);
+    autenticarUsuario(miEvento);;
   }
 
   // Agrega el evento submit al formulario para llamar a autenticarUsuario
