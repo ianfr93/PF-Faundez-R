@@ -488,14 +488,19 @@ margin-left: 10px;
 background: transparent;
 }
 .wrappers {
+  max-height: 490px; /* Altura máxima del contenedor */
+  overflow-y: auto; /* Habilita el desplazamiento vertical cuando hay más contenido */
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-between; /* Distribuye uniformemente las columnas */
+  gap: 20px; /* Espacio entre las columnas */
+;
 }
 
 .item-group {
-  flex: 0 0 calc(20.333% - 20px);
-  margin-bottom: 20px;
+  flex: 0 0 calc(33.333% - 20px); /* Tamaño de las columnas para que haya tres columnas en una fila */
+  max-width: calc(33.333% - 20px); /* Tamaño máximo de las columnas */
+  margin-bottom: 20px; /* Espacio entre las filas */
 }
 
 .card {
