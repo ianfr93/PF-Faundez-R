@@ -699,7 +699,9 @@ td span {
   display: flex;
   align-items: center;
 }
-
+.menu-toggle {
+  display: none; /* Ocultar el botón de hamburguesa por defecto */
+}
 
 
 
@@ -815,6 +817,61 @@ td span {
   font-weight:bolder;
 }
 
+
+
+.search input {
+  width: 90%; /* Reducir el ancho del campo de búsqueda */
+}
+.sellables-container .sellables .item-group-wrapper .item-group .item {
+  padding: 20px; /* Reducir el padding de los productos en tablet */
+  min-width: 150px; /* Ajustar el tamaño mínimo de los productos */
+}
+}
+
+
+@media (max-width: 767px) {
+
+
+
+
+
+
+
+
+  .search input {
+      width: 100%; /* Ancho completo */
+      margin-left: 0; /* Eliminar el margen izquierdo */
+  }
+
+  .sellables-container {
+      flex-direction: column; /* Cambiar la dirección de los elementos a columna */
+  }
+
+  .item-group {
+      flex: 0 0 calc(100% - 20px); /* Ancho completo */
+      margin-right: 0; /* Eliminar el margen derecho */
+  }
+
+  .card {
+      min-width: 100%; /* Ancho completo */
+      margin-right: 0; /* Eliminar el margen derecho */
+  }
+
+  .register-wrapper {
+      margin-top: 20px; /* Agregar espacio arriba */
+  }
+
+  .register {
+      width: 100%; /* Ancho completo */
+  }
+
+  .register .pay-button {
+      margin-top: 20px; /* Agregar espacio arriba */
+  }
+
+  .pay-button a {
+      padding: 10px 20px; /* Ajustar el relleno */
+  }
 }
 
 

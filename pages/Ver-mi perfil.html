@@ -25,20 +25,40 @@
 <body>
 
     
-    <nav>
-        <ul>
-            <li><img src="../assets/img/logo/logo-blanco.png" alt="Logo de la Marca"
-                    style="width: 150px; height: auto;"></li>
-            <li><a href="./dashboard.html"><i class="fas fa-barcode fa-sm"></i> POS</a></li>
-            <li><a href="./Ver-stock.html"><i class="fas fa-box fa-sm"></i> Ver Stock</a></li>
-            <li><a href="./ventas-del-dia.html"><i class="fas fa-chart-line fa-sm"></i> Ventas del día</a></li>
-            <li><a href="./cerrar-caja.html"><img src="../assets/img/iconos/caja-de-seguridad.png" style="width: 20px;"
-                        alt="Cerrar Caja" class="imagen-pequena"> Cerrar Caja</a></li>
-            <!-- Cambiaremos este elemento a un dropdown -->
-            
-            <li><a href="../index.html"><i class="fas fa-sign-out-alt fa-sm" style="margin-right: 10px;"></i> Cerrar
-                    Sesión</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-color">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/img/logo/logo-blanco.png" alt="Logo de la Marca" style="width: 150px; height: auto;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="./dashboard.html"><i class="fas fa-barcode fa-sm"></i> POS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="./Ver-stock.html"><i class="fas fa-box fa-sm"></i> Ver Stock</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="./ventas-del-dia.html"><i class="fas fa-chart-line fa-sm"></i> Ventas del día</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="./cerrar-caja.html">
+                        <img src="../assets/img/iconos/caja-de-seguridad.png" style="width: 20px;" alt="Cerrar Caja" class="imagen-pequena">
+                        Cerrar Caja
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="../index.html">
+                        <i class="fas fa-sign-out-alt fa-sm" style="margin-right: 10px;"></i> Cerrar Sesión
+                    </a>
+                </li>
+            </ul>
+        </div>
+
     </nav>
 
 
@@ -127,10 +147,9 @@
 
 
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha384-nvEwYbNmHi3yo33a1+BqJSxTEG0Q2LBrM2Lp3XaDJHgx2RR1/mFDWhR6H18maTYY" crossorigin="anonymous">
-    </script>
+   <!-- jQuery y Bootstrap Bundle (Bootstrap + Popper.js) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- perfiles-usuarios.js -->
     <script src="../assets/Js/perfiles-usuarios.js"></script>
 
