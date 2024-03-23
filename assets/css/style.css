@@ -748,7 +748,7 @@ td span {
 }
 
 .carrito-table thead {
-  position: sticky;
+
   top: 20px; /* Puedes ajustar este valor según sea necesario */
   background-color: #f8f9fa; 
 }

@@ -1,7 +1,7 @@
 // Función para calcular el total de la venta incluyendo el IVA
 function calcularTotal(productos) {
   let total = 0;
-  const IVA = 0.19; 
+  const IVA = 0.19;
   productos.forEach(function (producto) {
     total += producto.precio * producto.cantidad;
   });
@@ -182,8 +182,9 @@ document.addEventListener("DOMContentLoaded", function () {
           aumentarCantidad(producto.nombre);
         });
         celdaCantidad.appendChild(botonAumentar);
-
         celdaPrecio.textContent = '$' + (producto.precio * producto.cantidad).toFixed(2);
+
+
 
         // Ícono de eliminación
         let iconoEliminar = document.createElement('i');
