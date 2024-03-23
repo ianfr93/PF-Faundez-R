@@ -93,11 +93,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Inicializar intentos restantes
-  let intentosRestantes = 4; // Cambia este valor según el número deseado de intentos
-
+  let intentosRestantes = 4; 
   // Llama a autenticarUsuario si quedan intentos restantes
   if (intentosRestantes > 0) {
-    autenticarUsuario(event); // Agregué el evento "event" aquí para que sea accesible en autenticarUsuario
+    autenticarUsuario(event); 
   }
 
   // Agrega el evento submit al formulario para llamar a autenticarUsuario

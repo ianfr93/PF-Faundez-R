@@ -1,11 +1,16 @@
-// Función para calcular el total de la venta
+// Función para calcular el total de la venta incluyendo el IVA
 function calcularTotal(productos) {
   let total = 0;
+  const IVA = 0.19; 
   productos.forEach(function (producto) {
     total += producto.precio * producto.cantidad;
   });
+  // Calcular el monto del IVA y sumarlo al total
+  const montoIVA = total * IVA;
+  total += montoIVA;
   return total;
 }
+
 // Función para descontar el stock de un producto vendido
 function descontarStock(nombreProducto, cantidad) {
   console.log("Descontando stock de " + nombreProducto + " en " + cantidad + " unidades.");
