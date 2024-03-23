@@ -832,7 +832,7 @@ td span {
 }
 
 #loading-overlay img {
-  width: 200px; /* Ancho del GIF (ajusta según sea necesario) */
+  width: 500px; /* Ancho del GIF (ajusta según sea necesario) */
   height: auto; /* Altura ajustada automáticamente */
 }
 
