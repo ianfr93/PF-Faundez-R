@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Llama a autenticarUsuario si quedan intentos restantes
   if (intentosRestantes > 0) {
-    autenticarUsuario(miEvento);;
+    autenticarUsuario(event); // Agregué el evento "event" aquí para que sea accesible en autenticarUsuario
   }
 
   // Agrega el evento submit al formulario para llamar a autenticarUsuario
@@ -117,6 +117,5 @@ document.addEventListener("DOMContentLoaded", function () {
     guardarYRedirigir();
   });
 
-  
 });
 
