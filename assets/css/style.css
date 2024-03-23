@@ -390,6 +390,18 @@ body {
   height: 100%;
 }
 
+.navbar-nav  .nav-item  .nav-link {
+  padding-top: 10px; /* Agrega espacio arriba */
+  margin-left: 50px;
+}
+.navbar-brand img {
+  max-width: 100%; /* Asegura que el ancho de la imagen sea máximo */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-right: 40px; /* Añade margen a la derecha del logo (ajustar según necesidad) */
+  margin-left: 40px;
+}
+
+
 body nav {
   display: flex;
   justify-content: space-between;
@@ -579,6 +591,7 @@ body .sellables-container .register-wrapper .register .pay-button a:hover {
 
 .dropdown {
   background: transparent;
+ 
 }
 
 .wrappers {
@@ -826,14 +839,16 @@ td span {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.068); /* Color de fondo con transparencia */
-  backdrop-filter: blur(8px); /* Aplicar efecto de desenfoque */
-  z-index: 9999; /* Asegura que el overlay esté en la parte superior */
+  background-color: rgba(206, 205, 205, 0.506); 
+  backdrop-filter: blur(3px); 
+  z-index: 9999; 
 }
 
 #loading-overlay img {
-  width: 300px; /* Ancho del GIF (ajusta según sea necesario) */
-  height: auto; /* Altura ajustada automáticamente */
+  width: 150px;
+  height: auto;
+  border-radius: 100%; 
+  
 }
 
 @media only screen and (max-width: 900px) {
