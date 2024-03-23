@@ -1,13 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
-  let loader = document.getElementById('loader');
-  if (loader) {
-    loader.style.display = 'block'; // Mostrar el indicador de carga cuando la página empiece a cargar
-  }
-});
-
-window.addEventListener('load', () => {
-  let loader = document.getElementById('loader');
-  if (loader) {
-    loader.style.display = 'none'; // Ocultar el indicador de carga cuando la página se haya cargado completamente
-  }
+document.addEventListener("DOMContentLoaded", function() {
+  // Retrasar la ocultación del overlay por 1 segundo (1000 milisegundos)
+  setTimeout(function() {
+    document.getElementById("loading-overlay").style.display = "none";
+  }, 1000);
 });

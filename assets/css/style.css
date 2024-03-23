@@ -815,14 +815,26 @@ td span {
   /* Ocultar el botón de hamburguesa por defecto */
 }
 
-#loader {
+
+
+#loading-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000; /* Asegurarse de que el indicador esté en la parte superior */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.201); /* Color de fondo con transparencia */
+  backdrop-filter: blur(5px); /* Aplicar efecto de desenfoque */
+  z-index: 9999; /* Asegura que el overlay esté en la parte superior */
 }
 
+#loading-overlay img {
+  width: 200px; /* Ancho del GIF (ajusta según sea necesario) */
+  height: auto; /* Altura ajustada automáticamente */
+}
 
 @media only screen and (max-width: 900px) {
   .item-group .wrappers {
