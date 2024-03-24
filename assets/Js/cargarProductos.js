@@ -11,7 +11,7 @@ class Producto {
     return this.precio * cantidad;
   }
 }
-
+  // Productos, precio, Stock
 const productos = [
   new Producto(1, "Aceite Belmont 1lt", 4000, 800),
   new Producto(2, "Coca Cola 3lts", 3000, 500),
@@ -29,11 +29,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const categories = document.querySelectorAll('.category');
   const itemGroups = document.querySelectorAll('.item-group');
   const searchInput = document.getElementById('searchInput');
+  const searchButton = document.getElementById('searchButton');
 
   // Asignar 'todos' como la categoría inicial
   const initialCategory = 'todos';
 
-  // Remover la clase 'active' de todas las categorías
+
   categories.forEach(function (category) {
     category.classList.remove('active');
   });
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
     group.style.display = 'block';
   });
 
-  // Asignar la clase 'active' a la categoría inicial
+
   categories.forEach(function (category) {
     if (category.dataset.category === initialCategory) {
       category.classList.add('active');
@@ -71,48 +72,46 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-
-  // Agregar evento de input al campo de búsqueda
-  searchInput.addEventListener('input', function () {
+  // Agregar evento de click al botón de búsqueda
+  searchButton.addEventListener('click', function () {
     buscar();
   });
 
   // Función para buscar productos
-  function buscar() {
-    const inputBusqueda = searchInput.value.toLowerCase();
+function buscar() {
+  const inputBusqueda = searchInput.value.trim().toLowerCase();
 
-    itemGroups.forEach(function (group) {
-      const productosEnGrupo = group.querySelectorAll('.product-name');
-      let algunProductoCoincide = false;
+  itemGroups.forEach(function (group) {
+    const productosEnGrupo = group.querySelectorAll('.product-name');
+    let algunProductoCoincideEnGrupo = false;
 
-      productosEnGrupo.forEach(function (producto) {
-        const nombreProducto = producto.textContent.toLowerCase();
+    productosEnGrupo.forEach(function (producto) {
+      const nombreProducto = producto.textContent.trim().toLowerCase();
 
-        if (nombreProducto.includes(inputBusqueda)) {
-          const idProducto = parseInt(producto.dataset.productId);
-          const productoEncontrado = productos.find(p => p.id === idProducto);
+      if (nombreProducto.includes(inputBusqueda)) {
+        const idProducto = parseInt(producto.dataset.productId);
+        const productoEncontrado = productos.find(p => p.nombre.toLowerCase() === nombreProducto);
 
-          if (productoEncontrado) {
-            console.log("Producto encontrado:");
-            console.log("ID:", productoEncontrado.id);
-            console.log("Nombre:", productoEncontrado.nombre);
-            console.log("Precio:", productoEncontrado.precio);
-            console.log("Stock:", productoEncontrado.stock);
-            console.log("Objeto:", productoEncontrado);
-            console.log("-----------------------");
-          }
-
-          algunProductoCoincide = true;
+        if (productoEncontrado) {
+          console.log("Producto encontrado:");
+          console.log("ID:", productoEncontrado.id);
+          console.log("Nombre:", productoEncontrado.nombre);
+          console.log("Precio:", productoEncontrado.precio);
+          console.log("Stock:", productoEncontrado.stock);
+          console.log("Objeto:", productoEncontrado);
+          console.log("-----------------------");
         }
-      });
 
-      // Mostrar u ocultar el grupo dependiendo de si algún producto coincide con la búsqueda
-      if (algunProductoCoincide || inputBusqueda === '') {
-        group.style.display = 'block';
-      } else {
-        group.style.display = 'none';
+        algunProductoCoincideEnGrupo = true;
       }
     });
-  }
+
+    if (algunProductoCoincideEnGrupo || inputBusqueda === '') {
+      group.style.display = 'block';
+    } else {
+      group.style.display = 'none';
+    }
+  });
+}
 
 });

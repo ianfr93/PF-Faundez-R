@@ -429,7 +429,7 @@ body nav ul li a:hover {
 }
 
 .search input {
-  width: 97%;
+  width: 90%;
   height: 40px;
   margin-left: 10px;
   border: none;
@@ -438,6 +438,22 @@ body nav ul li a:hover {
   text-align: center;
   background-color: #ececec;
   margin-top: 20px;
+}
+
+ /* Estilos para el botón de búsqueda */
+ #searchButton {
+  background-color: #2c5d70; 
+  color: #fff;
+  border: none; 
+  border-radius: 4px; 
+  padding: 8px 16px; 
+  cursor: pointer; 
+  font-size: 16px; 
+}
+
+/* Estilo cuando el cursor pasa sobre el botón */
+#searchButton:hover {
+  background-color: #00A79D; 
 }
 
 body nav .search input::placeholder {
