@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let usuarios = [
+  const usuarios = [
     {
       usuario: "usuario1",
       contraseña: "contraseña1",
@@ -62,7 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   ];
 
-  // Función para autenticar al usuario
+  let intentosRestantes = 4;
+
   function autenticarUsuario(event) {
     event.preventDefault();
 
@@ -85,36 +86,42 @@ document.addEventListener("DOMContentLoaded", function () {
         resetForm();
       }
     } else {
-      // Guardar el usuario autenticado en sessionStorage
       sessionStorage.setItem("usuarioAutenticado", JSON.stringify(usuarioValido));
-      // Redirigir al menú de cajas
       window.location.href = './pages/Menu-de-caja.html';
     }
   }
 
-  // Inicializar intentos restantes
-  let intentosRestantes = 4; 
-  // Llama a autenticarUsuario si quedan intentos restantes
-  if (intentosRestantes > 0) {
-    autenticarUsuario(event); 
-  }
-
-  // Agrega el evento submit al formulario para llamar a autenticarUsuario
-  let loginForm = document.getElementById("loginForm");
-  if (loginForm) {
-    loginForm.addEventListener("submit", autenticarUsuario);
-  }
-
-  // Función para reiniciar el formulario
   function resetForm() {
     // Implementa la lógica para reiniciar el formulario si es necesario
   }
 
+  let loginForm = document.getElementById("loginForm");
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", autenticarUsuario);
+  }
+
   const botonGuardar = document.getElementById("acceso");
 
-  botonGuardar.addEventListener("click", function () {
-    guardarYRedirigir();
-  });
+  if (botonGuardar) {
+    botonGuardar.addEventListener("click", function () {
+      guardarYRedirigir();
+    });
+  }
 
+  function guardarYRedirigir() {
+    // Implementa la lógica para guardar y redirigir
+  }
+
+  const formulario = document.getElementById("loginForm");
+
+  if (formulario) {
+    formulario.addEventListener("submit", (event) => {
+      event.preventDefault();
+      console.log(event.target);
+      console.log(event.target[0]);
+      console.log(event.target[1]);
+      //console.log("Formulario enviado");
+    });
+  }
 });
-
