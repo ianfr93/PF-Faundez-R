@@ -89,6 +89,19 @@ document.addEventListener('DOMContentLoaded', function () {
         const nombreProducto = producto.textContent.toLowerCase();
 
         if (nombreProducto.includes(inputBusqueda)) {
+          const idProducto = parseInt(producto.dataset.productId);
+          const productoEncontrado = productos.find(p => p.id === idProducto);
+
+          if (productoEncontrado) {
+            console.log("Producto encontrado:");
+            console.log("ID:", productoEncontrado.id);
+            console.log("Nombre:", productoEncontrado.nombre);
+            console.log("Precio:", productoEncontrado.precio);
+            console.log("Stock:", productoEncontrado.stock);
+            console.log("Objeto:", productoEncontrado);
+            console.log("-----------------------");
+          }
+
           algunProductoCoincide = true;
         }
       });
