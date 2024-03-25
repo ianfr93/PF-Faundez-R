@@ -617,6 +617,7 @@ body .sellables-container .register-wrapper .register .pay-button a:hover {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 18px;
+ 
 }
 
 .item-group {
@@ -763,10 +764,13 @@ td span {
   overflow-y: auto;
 }
 
+
+
 .carrito-table thead {
 
-  top: 20px; /* Puedes ajustar este valor según sea necesario */
+  top: 20px; 
   background-color: #f8f9fa; 
+
 }
 /* Estilos para los elementos de la tabla */
 .table {
