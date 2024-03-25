@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Verificar si hay un usuario autenticado
     if (usuarioAutenticado) {
-        // Obtener el nombre del usuario
-        const nombreUsuario = usuarioAutenticado.perfil.nombre;
+        // Obtener el nombre completo del usuario
+        const nombreCompletoUsuario = usuarioAutenticado.nombreCompleto;
 
         // Crear el nuevo elemento del perfil de usuario
         const nuevoElementoPerfilUsuario = document.createElement("li");
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Crear el contenido del perfil de usuario
         nuevoElementoPerfilUsuario.innerHTML = `
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-user fa-sm"></i> ${nombreUsuario}
+                <i class="fas fa-user fa-sm"></i> ${nombreCompletoUsuario}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="./Ver-mi perfil.html">Ver Perfil de Usuario</a>
@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
 
         // Insertar el nuevo elemento del perfil de usuario antes del botón "Cerrar Sesión"
-        const cerrarCajaElemento = document.querySelector(".navbar-nav .nav-item:nth-child(4)");
-        cerrarCajaElemento.parentNode.insertBefore(nuevoElementoPerfilUsuario, cerrarCajaElemento.nextSibling);
+        const cerrarSesionElemento = document.querySelector(".navbar-nav .nav-item:nth-child(4)");
+        cerrarSesionElemento.parentNode.insertBefore(nuevoElementoPerfilUsuario, cerrarSesionElemento.nextSibling);
 
         // Agregar evento de clic al enlace dropdown-toggle para mostrar/ocultar el menú desplegable
         const dropdownToggle = nuevoElementoPerfilUsuario.querySelector('#navbarDropdownMenuLink');
@@ -34,6 +34,5 @@ document.addEventListener("DOMContentLoaded", function() {
             const dropdownMenu = nuevoElementoPerfilUsuario.querySelector('.dropdown-menu');
             dropdownMenu.classList.toggle('show');
         });
-        
     }
 });
