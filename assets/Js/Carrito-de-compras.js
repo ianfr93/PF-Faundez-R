@@ -129,7 +129,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let carrito = obtenerCarrito();
   actualizarCarritoUI(carrito);
 
-  // Función para actualizar la interfaz de usuario con el contenido del carrito
   function actualizarCarritoUI(carrito) {
     let historialCompras = document.getElementById('historialCompras');
     if (historialCompras) {
