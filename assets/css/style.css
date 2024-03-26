@@ -391,13 +391,13 @@ body {
 }
 
 .navbar-nav  .nav-item  .nav-link {
-  padding-top: 10px; /* Agrega espacio arriba */
+  padding-top: 10px; 
   margin-left: 50px;
 }
 .navbar-brand img {
-  max-width: 100%; /* Asegura que el ancho de la imagen sea máximo */
-  height: auto; /* Mantiene la proporción de la imagen */
-  margin-right: 40px; /* Añade margen a la derecha del logo (ajustar según necesidad) */
+  max-width: 100%; 
+  height: auto; 
+  margin-right: 40px; 
   margin-left: 40px;
 }
 
@@ -1097,6 +1097,33 @@ td span {
 
 
 @media screen and (max-width: 480px) {
+
+ /* Ajustes para las tarjetas cuando hay menos de tres por fila */
+ .wrappers .card:nth-last-child(-n+2) {
+  margin-right: 0; /* Cambiamos el margen derecho a 0 */
+  width: 100%; /* La tarjeta ocupará todo el ancho */
+}
+
+/* Ajustes para la imagen dentro de la tarjeta */
+.item-group .card .image img {
+  width: 60%; /* Aumentamos el ancho de la imagen */
+}
+
+/* Ajustes para el botón de añadir al carrito */
+.item-group .card .price button {
+  padding: 5px; 
+}
+
+/* Ajustes para los botones de cantidad en el carrito */
+.cantidad-buttons button {
+  height: 25px; 
+  width: 25px; 
+  font-size: 14px; 
+}
+
+
+
+
   .form-group {
     margin-bottom: 0px;
     margin-top: 10px;
