@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Obtener el usuario autenticado desde el almacenamiento local
     const usuarioAutenticado = JSON.parse(sessionStorage.getItem("usuarioAutenticado"));
 
@@ -29,10 +29,33 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Agregar evento de clic al enlace dropdown-toggle para mostrar/ocultar el menú desplegable
         const dropdownToggle = nuevoElementoPerfilUsuario.querySelector('#navbarDropdownMenuLink');
-        dropdownToggle.addEventListener('click', function(event) {
+        dropdownToggle.addEventListener('click', function (event) {
             event.preventDefault();
             const dropdownMenu = nuevoElementoPerfilUsuario.querySelector('.dropdown-menu');
             dropdownMenu.classList.toggle('show');
+        });
+    }
+
+    // Agregar evento de clic al enlace "Cerrar Sesión"
+    const cerrarSesionEnlace = document.querySelector(".navbar-nav .cerrar-sesion");
+    if (cerrarSesionEnlace) {
+        cerrarSesionEnlace.addEventListener('click', function (event) {
+            event.preventDefault();
+            // Mostrar una alerta de confirmación antes de cerrar la sesión
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¿Quieres cerrar sesión?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#2c5d70',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, cerrar sesión'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Si el usuario confirma, redirigir a la página de inicio de sesión o realizar la acción correspondiente
+                    window.location.href = "../index.html";
+                }
+            });
         });
     }
 });
