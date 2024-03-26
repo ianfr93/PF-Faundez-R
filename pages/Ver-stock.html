@@ -28,6 +28,10 @@
 
 <body>
 
+    <div id="loading-overlay">
+        <img src="../assets/img/loading/megatron.gif" alt="Loading...">
+    </div>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-color">
         <a class="navbar-brand" href="#">
             <img src="../assets/img/logo/logo-blanco.png" alt="Logo de la Marca" style="width: 150px; height: auto;">
@@ -71,7 +75,7 @@
     <div class="container mt-4">
         <h2>Inventario de Productos</h2>
 
-        <!-- Tabla con Bootstrap -->
+    
         <table class="table">
             <thead>
                 <tr>
@@ -80,12 +84,12 @@
                     <th scope="col">Cantidad</th>
                 </tr>
             </thead>
-            <!-- Asigna un ID al tbody para que pueda ser seleccionado en JavaScript -->
+
             <tbody id="tablaProductos">
-                <!-- Fila de ejemplo, puedes repetir esto para cada producto -->
+        
                 <tr>
                 </tr>
-                <!-- Fin de las filas de ejemplo -->
+           
             </tbody>
         </table>
     </div>
@@ -93,7 +97,8 @@
     <script src="
     https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
     "></script>
-
+    <!-- Scripts personalizados -->
+    <script src="../assets/Js/Cargando.js"></script>
     <!-- jQuery y Popper.js -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -112,6 +117,7 @@
 
     <!-- nav.js -->
     <script src="../assets/Js/nav.js"></script>
+ 
 
 
 
