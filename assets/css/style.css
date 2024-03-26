@@ -879,7 +879,22 @@ td span {
   
 }
 
+.swal-button-error {
+  background-color: #dc3545; 
+  color: #fff; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px 20px; 
+}
 
+
+.swal-button-success {
+  background-color: #2c5d70;
+  color: #fff; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px 20px; 
+}
 
 
 

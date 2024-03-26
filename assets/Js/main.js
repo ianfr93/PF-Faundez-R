@@ -15,21 +15,30 @@ document.addEventListener("DOMContentLoaded", function () {
       // Buscar el usuario en la lista de usuarios
       const usuarioValido = usuarios.find(user => user.usuario === nombreUsuario && user.password === contraseña);
 
-      // Elemento para mostrar mensajes
-      const mensajeElement = document.getElementById("mensaje");
-
       if (!usuarioValido) {
           // Reducir el número de intentos restantes
           intentosRestantes--;
 
           if (intentosRestantes > 0) {
-              // Mostrar mensaje de error y actualizar los intentos restantes
-              mensajeElement.innerHTML = `Nombre de usuario o contraseña incorrectos. Intentos restantes: ${intentosRestantes}`;
-              mensajeElement.className = "error-message";
-              mensajeElement.style.display = "block";
+              // Mostrar mensaje de error con SweetAlert2 y actualizar los intentos restantes
+              Swal.fire({
+                  icon: 'error',
+                  title: 'Error',
+                  text: `Nombre de usuario o contraseña incorrectos. Intentos restantes: ${intentosRestantes}`,
+                  customClass: {
+                      confirmButton: 'swal-button-error'
+                  }
+              });
           } else {
-              // Si se agotan los intentos, mostrar mensaje y reiniciar formulario
-              mensajeElement.innerHTML = "¡Se han agotado los intentos! Reinicie la sesión para intentar nuevamente.";
+              // Si se agotan los intentos, mostrar mensaje de error con SweetAlert2
+              Swal.fire({
+                  icon: 'error',
+                  title: 'Error',
+                  text: '¡Se han agotado los intentos! Reinicie la sesión para intentar nuevamente.',
+                  customClass: {
+                      confirmButton: 'swal-button-error'
+                  }
+              });
               resetForm();
           }
 
@@ -37,9 +46,17 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
           // Si las credenciales son válidas, almacenar usuario en sessionStorage y redirigir
           sessionStorage.setItem("usuarioAutenticado", JSON.stringify(usuarioValido));
-          window.location.href = './pages/Menu-de-caja.html';
-
-          console.log("Inicio de sesión exitoso para el usuario:", nombreUsuario); // Mensaje adicional en consola
+          // Mostrar mensaje de éxito con SweetAlert2
+          Swal.fire({
+              icon: 'success',
+              title: 'Inicio de sesión exitoso',
+              text: `¡Bienvenido, ${nombreUsuario}!`,
+              customClass: {
+                  confirmButton: 'swal-button-success'
+              }
+          }).then(() => {
+              window.location.href = './pages/Menu-de-caja.html';
+          });
       }
   }
 
