@@ -878,22 +878,15 @@ td span {
   border-radius: 100%; 
   
 }
-
-.swal-button-error {
-  background-color: #dc3545; 
-  color: #fff; 
-  border: none; 
-  border-radius: 5px; 
-  padding: 10px 20px; 
+/* Estilo para el botón "OK" en SweetAlert2 */
+.swal-button.swal-button--confirm {
+  background-color: #2c5d70 !important; /* Color de fondo del botón */
+  color: #fff !important; /* Color del texto del botón */
 }
 
-
-.swal-button-success {
-  background-color: #2c5d70;
-  color: #fff; 
-  border: none; 
-  border-radius: 5px; 
-  padding: 10px 20px; 
+/* Estilo para el icono de verificación en SweetAlert2 */
+.swal-icon.swal-icon--success::before {
+  color: #2c5d70 !important; /* Color del icono de verificación */
 }
 
 

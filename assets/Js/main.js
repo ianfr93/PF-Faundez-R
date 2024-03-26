@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
                   icon: 'error',
                   title: 'Error',
                   text: `Nombre de usuario o contraseña incorrectos. Intentos restantes: ${intentosRestantes}`,
-                  customClass: {
-                      confirmButton: 'swal-button-error'
-                  }
+                  confirmButtonColor: '#2c5d70',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'OK'
               });
           } else {
               // Si se agotan los intentos, mostrar mensaje de error con SweetAlert2
@@ -35,9 +35,9 @@ document.addEventListener("DOMContentLoaded", function () {
                   icon: 'error',
                   title: 'Error',
                   text: '¡Se han agotado los intentos! Reinicie la sesión para intentar nuevamente.',
-                  customClass: {
-                      confirmButton: 'swal-button-error'
-                  }
+                  confirmButtonColor: '#2c5d70',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'OK'
               });
               resetForm();
           }
@@ -48,12 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
           sessionStorage.setItem("usuarioAutenticado", JSON.stringify(usuarioValido));
           // Mostrar mensaje de éxito con SweetAlert2
           Swal.fire({
-              icon: 'success',
               title: 'Inicio de sesión exitoso',
               text: `¡Bienvenido, ${nombreUsuario}!`,
-              customClass: {
-                  confirmButton: 'swal-button-success'
-              }
+              iconHtml: '<i class="fas fa-check-circle" style="color: green;"></i>',
+              confirmButtonColor: '#2c5d70',
+              confirmButtonText: 'OK'
           }).then(() => {
               window.location.href = './pages/Menu-de-caja.html';
           });

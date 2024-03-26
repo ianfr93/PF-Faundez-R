@@ -17,7 +17,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Verificar si el usuario ya existe
       if (usuarios.some(user => user.usuario === usuario)) {
-          showMessage("danger", "El nombre de usuario ya está en uso.");
+          // Mostrar mensaje de error con SweetAlert2
+          Swal.fire({
+              icon: 'error',
+              confirmButtonColor: '#2c5d70',
+              title: 'Error',
+              text: 'El nombre de usuario ya está en uso.'
+          });
           console.log("Nombre de usuario ya en uso:", usuario); // Mensaje adicional en consola
           return;
       }
@@ -39,22 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {
       // Limpiar el formulario
       formRegistro.reset();
 
-      // Mostrar mensaje de éxito
-      showMessage("success", "¡Usuario registrado con éxito!");
+      // Mostrar mensaje de éxito con SweetAlert2
+      Swal.fire({
+         
+          iconHtml: '<i class="fas fa-check-circle" style="color: green;"></i>',
+          confirmButtonColor: '#2c5d70',
+          title: 'Éxito',
+          text: '¡Usuario registrado con éxito!'
+      });
       console.log("Nuevo usuario registrado:", newUser); // Mensaje adicional en consola
   });
-
-  // Función para mostrar mensajes
-  function showMessage(type, message) {
-      var mensajeDiv = document.getElementById("mensaje");
-      mensajeDiv.innerHTML = message;
-      mensajeDiv.classList.add("alert-" + type);
-      mensajeDiv.style.display = "block";
-
-      // Ocultar el mensaje después de 3 segundos
-      setTimeout(function () {
-          mensajeDiv.style.display = "none";
-          mensajeDiv.classList.remove("alert-" + type);
-      }, 3000);
-  }
 });
