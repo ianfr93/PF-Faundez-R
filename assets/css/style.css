@@ -1041,13 +1041,6 @@ td span {
 
 @media (max-width: 767px) {
 
-
-
-
-
-
-
-
   .search input {
     width: 100%;
     /* Ancho completo */
@@ -1098,20 +1091,70 @@ td span {
 
 @media screen and (max-width: 480px) {
 
+/* Estilos para el contenedor de los productos vendibles */
+.sellables-container {
+  display: flex;
+  flex-direction: column; /* Cambiamos a una disposición de columna en pantallas pequeñas */
+  flex: 1;
+}
+
+/* Estilos para las categorías */
+body .sellables-container .sellables .categories {
+  display: flex;
+  flex-wrap: wrap; /* Permitimos que las categorías se envuelvan en múltiples líneas */
+  justify-content: center; /* Centramos horizontalmente las categorías */
+  gap: 10px; /* Espacio entre las categorías */
+}
+
+/* Ajustes para las categorías individuales */
+body .sellables-container .sellables .categories .category {
+  width: calc(30% - 10px); /* Calculamos el ancho para que quepan 2 categorías en una fila con espacio entre ellas */
+  padding: 3px;
+  margin: 5px;
+  border: 1px solid #c8cfd8;
+  border-radius: 5px;
+  background: #e6e9ed;
+  color: #424a54;
+  font-size: 10px;
+}
+
+
+
+
+
+
+
+  
+
  /* Ajustes para las tarjetas cuando hay menos de tres por fila */
  .wrappers .card:nth-last-child(-n+2) {
-  margin-right: 0; /* Cambiamos el margen derecho a 0 */
-  width: 100%; /* La tarjeta ocupará todo el ancho */
+  margin-right: 0; 
+  width: 100%; 
+  font-size: 6px;
 }
+  /* Ajustes para tarjetas individuales */
+  .item-group {
+    width: 100%; /* Aseguramos que ocupe todo el ancho disponible */
+    margin-bottom: 20px; /* Añadimos margen inferior para separar las tarjetas */
+  }
+.item-group {
+  width: calc(100% - 10px);
+}
+
+.item-group span{
+  font-size: 10px;
+}
+
+
 
 /* Ajustes para la imagen dentro de la tarjeta */
 .item-group .card .image img {
-  width: 60%; /* Aumentamos el ancho de la imagen */
+  width: 60%; 
 }
 
-/* Ajustes para el botón de añadir al carrito */
 .item-group .card .price button {
-  padding: 5px; 
+  width: 100%; /* Cambiamos el ancho del botón al 100% en pantallas pequeñas */
+  font-size: 6px;
 }
 
 /* Ajustes para los botones de cantidad en el carrito */
@@ -1167,6 +1210,13 @@ td span {
     margin: 0 auto;
     display: block;
   }
+
+  .search input{
+    width: 80%;
+  }
+
+
+
 }
 
 @media screen and (max-width: 320px) {
