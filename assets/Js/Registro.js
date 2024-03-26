@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
               title: 'Error',
               text: 'El nombre de usuario ya está en uso.'
           });
-          console.log("Nombre de usuario ya en uso:", usuario); // Mensaje adicional en consola
+          console.log("Nombre de usuario ya en uso:", usuario); 
           return;
       }
 
@@ -53,6 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
           title: 'Éxito',
           text: '¡Usuario registrado con éxito!'
       });
-      console.log("Nuevo usuario registrado:", newUser); // Mensaje adicional en consola
+      console.log("Nuevo usuario registrado:", newUser); 
   });
 });

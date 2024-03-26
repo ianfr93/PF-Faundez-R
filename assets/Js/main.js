@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
               resetForm();
           }
 
-          console.log("Intento de inicio de sesión fallido para el usuario:", nombreUsuario); // Mensaje adicional en consola
+          console.log("Intento de inicio de sesión fallido para el usuario:", nombreUsuario); 
       } else {
           // Si las credenciales son válidas, almacenar usuario en sessionStorage y redirigir
           sessionStorage.setItem("usuarioAutenticado", JSON.stringify(usuarioValido));
