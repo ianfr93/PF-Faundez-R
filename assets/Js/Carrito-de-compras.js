@@ -241,8 +241,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Verificar si el total es igual a 0
     if (total === 0) {
-      // Mostrar mensaje de error
-      alert('No puedes realizar el pago porque el carrito está vacío.');
+      // Mostrar mensaje de error usando SweetAlert
+      Swal.fire({
+        confirmButtonColor: '#2c5d70',
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No puedes realizar el pago porque el carrito está vacío.'
+      });
     } else {
       // Descontar el stock de los productos vendidos
       productos.forEach(function (producto) {
@@ -250,10 +255,18 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       // Mostrar mensaje de alerta indicando que el pago se ha realizado con éxito
-      alert('Pago realizado con éxito. ¡Gracias por tu compra!');
-
-      // Limpiar el carrito después del pago exitoso
-      borrarVenta();
+      Swal.fire({
+        confirmButtonColor: '#2c5d70',
+        iconHtml: '<i class="fas fa-check-circle" style="color: green;"></i>',
+        title: '¡Pago realizado con éxito!',
+        text: '¡Gracias por tu compra!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Limpiar el carrito después del pago exitoso
+          borrarVenta();
+        }
+      });
     }
   }
+
 });
