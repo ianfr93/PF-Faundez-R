@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // Manejar el envío del formulario de cierre de caja
     $('form').submit(function (event) {
-        event.preventDefault(); 
+        event.preventDefault(); // Evitar que el formulario se envíe automáticamente
 
         // Obtener los valores del formulario
         let montoCierre = $('#montoCierre').val();
@@ -9,7 +9,8 @@ $(document).ready(function () {
 
         // Validar el formulario
         if (montoCierre && comentarios) {
- 
+         
+            
             Swal.fire({
                 iconHtml: '<i class="fas fa-check-circle" style="color: green;"></i>',
                 confirmButtonColor: '#2c5d70',
