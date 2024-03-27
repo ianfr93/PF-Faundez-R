@@ -6,10 +6,10 @@ function cargarDatosUsuario() {
     let direccion = localStorage.getItem("direccionUsuario");
 
     // Mostrar los datos en los elementos HTML
-    document.getElementById("nombreUsuario").innerText = nombre;
-    document.getElementById("rutUsuario").innerText = rut;
-    document.getElementById("correoUsuario").innerText = correo;
-    document.getElementById("direccionUsuario").innerText = direccion;
+    document.getElementById("nombreUsuario").innerText = nombre || '';
+    document.getElementById("rutUsuario").innerText = rut || '';
+    document.getElementById("correoUsuario").innerText = correo || '';
+    document.getElementById("direccionUsuario").innerText = direccion || '';
 }
 
 // Función para guardar los datos del usuario en localStorage
@@ -19,11 +19,30 @@ function guardarDatosUsuario() {
     let correo = document.querySelector('input[name="email"]').value;
     let direccion = document.querySelector('input[name="phone"]').value;
 
-    // Guardar los datos en localStorage
-    localStorage.setItem("nombreUsuario", nombre);
-    localStorage.setItem("rutUsuario", rut);
-    localStorage.setItem("correoUsuario", correo);
-    localStorage.setItem("direccionUsuario", direccion);
+    // Verificar si se ingresaron datos
+    if (nombre && rut && correo && direccion) {
+        // Guardar los datos en localStorage
+        localStorage.setItem("nombreUsuario", nombre);
+        localStorage.setItem("rutUsuario", rut);
+        localStorage.setItem("correoUsuario", correo);
+        localStorage.setItem("direccionUsuario", direccion);
+
+        // Mostrar notificación de éxito
+        Swal.fire({
+            iconHtml: '<i class="fas fa-check-circle" style="color: green;"></i>',
+            title: '¡Datos actualizados con éxito!',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    } else {
+        // Mostrar notificación de error si faltan datos
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Por favor, completa todos los campos.',
+            confirmButtonColor: '#2c5d70'
+        });
+    }
 }
 
 // Función para inicializar la página

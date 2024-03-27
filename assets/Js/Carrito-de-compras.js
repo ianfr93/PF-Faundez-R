@@ -21,9 +21,11 @@ function descontarStock(nombreProducto, cantidad) {
     stockActual = parseInt(stockActual);
     let nuevoStock = stockActual - cantidad;
     localStorage.setItem(nombreProducto, nuevoStock);
+
+    // Llamar a la función para actualizar la cantidad en la tabla HTML
+    actualizarStock(nombreProducto, cantidad);
   }
 }
-
 document.addEventListener("DOMContentLoaded", function () {
   // Agregar evento click a los botones "Añadir al carro"
   let botonesAgregar = document.querySelectorAll('.price button');

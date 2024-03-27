@@ -880,13 +880,13 @@ td span {
 }
 /* Estilo para el botón "OK" en SweetAlert2 */
 .swal-button.swal-button--confirm {
-  background-color: #2c5d70 !important; /* Color de fondo del botón */
-  color: #fff !important; /* Color del texto del botón */
+  background-color: #2c5d70 !important; 
+  color: #fff !important; 
 }
 
 /* Estilo para el icono de verificación en SweetAlert2 */
 .swal-icon.swal-icon--success::before {
-  color: #2c5d70 !important; /* Color del icono de verificación */
+  color: #2c5d70 !important; 
 }
 
 
@@ -928,6 +928,23 @@ td span {
 }
 
 @media screen and (max-width: 991px) {
+
+  .wrappers {
+    justify-content: center; /* Centra las tarjetas */
+    gap: 10px; /* Reduce el espacio entre tarjetas */
+  }
+
+  .item-group {
+    flex: 0 0 calc(50% - 10px); /* Dos tarjetas por fila */
+    max-width: calc(50% - 10px);
+    margin-bottom: 20px; /* Espacio entre filas */
+  }
+
+  .card {
+    min-width: 0; /* Evita que las tarjetas tengan un ancho mínimo grande */
+    margin-left: 0;
+    margin-right: 0;
+  }
 
   .container-form img {
     content: url('../img/logo/logo-blanco.png');
@@ -1041,6 +1058,24 @@ td span {
 
 @media (max-width: 767px) {
 
+  .wrappers {
+    justify-content: center; /* Centra las tarjetas */
+    gap: 10px; /* Reduce el espacio entre tarjetas */
+  }
+
+  .item-group {
+    flex: 0 0 calc(50% - 10px); /* Dos tarjetas por fila */
+    max-width: calc(50% - 10px);
+    margin-bottom: 20px; /* Espacio entre filas */
+  }
+
+  .card {
+    min-width: 0; /* Evita que las tarjetas tengan un ancho mínimo grande */
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+
   .search input {
     width: 100%;
     /* Ancho completo */
@@ -1119,12 +1154,6 @@ body .sellables-container .sellables .categories .category {
 }
 
 
-
-
-
-
-
-  
 
  /* Ajustes para las tarjetas cuando hay menos de tres por fila */
  .wrappers .card:nth-last-child(-n+2) {
