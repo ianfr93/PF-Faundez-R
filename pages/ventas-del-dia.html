@@ -74,31 +74,23 @@
 
 </nav>
 
+<div class="container mt-4">
+  <h2>Ventas del día</h2>
 
-    <div class="container mt-4">
-        <h2>ventas del dia</h2>
-      
-        <!-- Tabla con Bootstrap -->
-        <table class="table">
-          <thead>
-            <tr>
+  <!-- Tabla con Bootstrap -->
+  <table class="table">
+      <thead>
+          <tr>
               <th scope="col">Producto</th>
               <th scope="col">Precio</th>
               <th scope="col">Cantidad</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Fila de ejemplo, puedes repetir esto para cada producto -->
-            <tr>
-              <td>Producto 1</td>
-              <td>$19.99</td>
-              <td>50</td>
-            </tr>
-            <!-- Fin de las filas de ejemplo -->
-          </tbody>
-        </table>
-      
-      </div>
+          </tr>
+      </thead>
+      <tbody id="tablaVentas">
+          <!-- Aquí se mostrarán las ventas del día -->
+      </tbody>
+  </table>
+</div>
 
 <!-- js alert -->
 <script src="
@@ -109,6 +101,9 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
 <!-- Scripts personalizados -->
    <script src="../assets/Js/nav.js"></script>
    <script src="../assets/Js/Cargando.js"></script>
+    <script src="../assets/Js/Ventas del dia.js"></script>
+ 
+
 
     <!-- Enlace a main.js -->
     <script src="../assets/Js/main.js"></script>

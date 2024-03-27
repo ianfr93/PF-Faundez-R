@@ -226,47 +226,57 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Función para realizar el pago
-  function realizarPago() {
-    let productos = obtenerCarrito();
-    let total = calcularTotal(productos);
+ // Función para realizar el pago
+function realizarPago() {
+  let productos = obtenerCarrito();
+  let total = calcularTotal(productos);
 
-    // Mostrar información de la venta en la consola
-    console.log("Venta realizada:");
-    console.log("Lista de productos:");
-    productos.forEach(function (producto) {
-      console.log(producto.nombre + " - Cantidad: " + producto.cantidad + " - Precio unitario: $" + producto.precio.toFixed(2) + " - Total: $" + (producto.precio * producto.cantidad).toFixed(2));
-    });
-    console.log("Total de la venta: $" + total.toFixed(2));
-
-    // Verificar si el total es igual a 0
-    if (total === 0) {
+  // Verificar si el total es igual a 0
+  if (total === 0) {
       // Mostrar mensaje de error usando SweetAlert
       Swal.fire({
-        confirmButtonColor: '#2c5d70',
-        icon: 'error',
-        title: 'Oops...',
-        text: 'No puedes realizar el pago porque el carrito está vacío.'
+          confirmButtonColor: '#2c5d70',
+          icon: 'error',
+          title: 'Oops...',
+          text: 'No puedes realizar el pago porque el carrito está vacío.'
       });
-    } else {
+  } else {
       // Descontar el stock de los productos vendidos
       productos.forEach(function (producto) {
-        descontarStock(producto.nombre, producto.cantidad);
+          descontarStock(producto.nombre, producto.cantidad);
       });
+
+      // Llamar a la función para almacenar la venta del día
+      almacenarVentaDelDia(productos);
 
       // Mostrar mensaje de alerta indicando que el pago se ha realizado con éxito
       Swal.fire({
-        confirmButtonColor: '#2c5d70',
-        iconHtml: '<i class="fas fa-check-circle" style="color: green;"></i>',
-        title: '¡Pago realizado con éxito!',
-        text: '¡Gracias por tu compra!'
+          confirmButtonColor: '#2c5d70',
+          iconHtml: '<i class="fas fa-check-circle" style="color: green;"></i>',
+          title: '¡Pago realizado con éxito!',
+          text: '¡Gracias por tu compra!'
       }).then((result) => {
-        if (result.isConfirmed) {
-          // Limpiar el carrito después del pago exitoso
-          borrarVenta();
-        }
+          if (result.isConfirmed) {
+              // Limpiar el carrito después del pago exitoso
+              borrarVenta();
+          }
       });
-    }
   }
+}
+
+// Función para almacenar la venta del día en el localStorage
+function almacenarVentaDelDia(productos) {
+  // Obtener la fecha actual en formato YYYY-MM-DD
+  const fecha = new Date().toISOString().split('T')[0];
+
+  // Obtener las ventas del día existentes del localStorage
+  let ventasDelDia = JSON.parse(localStorage.getItem('ventasDelDia')) || {};
+
+  // Agregar la venta actual a las ventas del día
+  ventasDelDia[fecha] = productos;
+
+  // Guardar las ventas del día actualizadas en el localStorage
+  localStorage.setItem('ventasDelDia', JSON.stringify(ventasDelDia));
+}
 
 });
