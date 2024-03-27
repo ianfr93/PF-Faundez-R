@@ -13,8 +13,8 @@ function mostrarVentasDelDia() {
 
         // Verificar si hay ventas para mostrar
         if (ventas && ventas.length > 0) {
-            // Obtener la referencia a la tabla en la página "Ventas del día"
-            let tablaVentas = document.querySelector('#tablaVentas tbody');
+         
+            let tablaVentas = document.getElementById('tablaVentas');
 
             // Limpiar la tabla antes de agregar nuevas ventas
             tablaVentas.innerHTML = '';
@@ -34,7 +34,24 @@ function mostrarVentasDelDia() {
     }
 }
 
+// Función para limpiar la tabla de ventas del día
+function limpiarTablaVentas() {
+    // Obtener la referencia a la tabla en la página "Ventas del día"
+    let tablaVentas = document.getElementById('tablaVentas');
+
+    // Limpiar la tabla
+    tablaVentas.innerHTML = '';
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     // Llamar a la función para mostrar las ventas del día al cargar la página
     mostrarVentasDelDia();
+
+    // Agregar evento de clic al botón para limpiar la tabla
+    let btnLimpiarTabla = document.getElementById('btnLimpiarTabla');
+    if (btnLimpiarTabla) {
+        btnLimpiarTabla.addEventListener('click', function() {
+            limpiarTablaVentas();
+        });
+    }
 });
