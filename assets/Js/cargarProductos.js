@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // URL de la API o archivo JSON
-  const API_URL = "../db/db.json";
+// URL de la API o archivo JSON
+const API_URL = "../db/db.json";
 
   // Llamar a la función para obtener los datos
   getData(API_URL);
