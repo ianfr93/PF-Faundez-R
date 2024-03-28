@@ -1,63 +1,84 @@
 {
-  "productos": [{
+  "productos": [
+    {
       "id": 1,
       "nombre": "Aceite Belmont 1lt",
       "precio": 4000,
-      "stock": 800
+      "stock": 800,
+      "codigo_barras": "1234567890123",
+      "sku": "ABC123"
     },
     {
       "id": 2,
       "nombre": "Coca Cola 3lts",
       "precio": 3000,
-      "stock": 500
+      "stock": 500,
+      "codigo_barras": "2345678901234",
+      "sku": "DEF456"
     },
     {
       "id": 3,
       "nombre": "Lavalozas Quix 1lt",
       "precio": 2850,
-      "stock": 700
+      "stock": 700,
+      "codigo_barras": "3456789012345",
+      "sku": "GHI789"
     },
     {
       "id": 4,
       "nombre": "Leche Soprole Chocolate 1lt",
       "precio": 1200,
-      "stock": 1200
+      "stock": 1200,
+      "codigo_barras": "4567890123456",
+      "sku": "JKL012"
     },
     {
       "id": 5,
       "nombre": "Galletas Oreo Chocolate",
       "precio": 850,
-      "stock": 80
+      "stock": 80,
+      "codigo_barras": "5678901234567",
+      "sku": "MNO345"
     },
     {
       "id": 6,
       "nombre": "Arroz Miraflores Granel",
       "precio": 1600,
-      "stock": 980
+      "stock": 980,
+      "codigo_barras": "6789012345678",
+      "sku": "PQR678"
     },
     {
       "id": 7,
       "nombre": "Papel Higiénico Suave 4 rollos",
       "precio": 2000,
-      "stock": 450
+      "stock": 450,
+      "codigo_barras": "7890123456789",
+      "sku": "STU901"
     },
     {
       "id": 8,
       "nombre": "Manzanas Royal Gala (kg)",
       "precio": 3500,
-      "stock": 600
+      "stock": 600,
+      "codigo_barras": "8901234567890",
+      "sku": "VWX234"
     },
     {
       "id": 9,
       "nombre": "Jabón Dove 100g",
       "precio": 1200,
-      "stock": 250
+      "stock": 250,
+      "codigo_barras": "9012345678901",
+      "sku": "YZA567"
     },
     {
       "id": 10,
       "nombre": "Atún en lata 160g",
       "precio": 2500,
-      "stock": 560
+      "stock": 560,
+      "codigo_barras": "0123456789012",
+      "sku": "BCD890"
     }
   ]
 }
