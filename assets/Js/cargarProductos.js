@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let productos = [];
 
   // Cargar los productos desde el archivo JSON
-  fetch('../data/productos.json')
+  fetch('./js/productos.json')
     .then(response => response.json())
     .then(data => {
       // Asignar los datos del JSON a la variable productos
