@@ -8,11 +8,13 @@ document.addEventListener('DOMContentLoaded', function () {
   let productos = [];
 
   // Cargar los productos desde el archivo JSON
-  fetch('./js/productos.json')
-    .then(response => response.json())
+  const URL = "./js/productos.json";
+  fetch(URL)
+    .then(res => res.json())
     .then(data => {
       // Asignar los datos del JSON a la variable productos
       productos = data;
+      crearHTML(productos);
 
       // Asignar 'todos' como la categoría inicial
       const initialCategory = 'todos';
