@@ -915,7 +915,7 @@ td span {
   right: 10px;
   font-size: 20px;
   cursor: pointer;
-  background-color:#ffffff;
+  color:#ffffff;
 }
 
 #btnAceptar, #btnBuscar {
