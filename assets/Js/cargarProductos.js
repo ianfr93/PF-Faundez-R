@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const getData = async (url) => {
     try {
       const respuesta = await fetch(url);
+
+      console.log(respuesta)
       const datos = await respuesta.json();
       console.log(datos);
       // Desestructurar los datos y asignarlos a la variable global 'productos'
@@ -62,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 // URL de la API o archivo JSON
-const API_URL = "../db/db.json";
+const API_URL = "./db/db.json";
 
   // Llamar a la función para obtener los datos
   getData(API_URL);
