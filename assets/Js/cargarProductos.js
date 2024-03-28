@@ -3,66 +3,26 @@ document.addEventListener('DOMContentLoaded', function () {
   const itemGroups = document.querySelectorAll('.item-group');
   const searchInput = document.getElementById('searchInput');
   const searchButton = document.getElementById('searchButton');
-  
-  // Inicializar la lista de productos vacía
-  let productos = [];
 
-  // Cargar los productos desde el archivo JSON
-  const URL = "./js/productos.json";
-  fetch(URL)
-    .then(res => res.json())
-    .then(data => {
-      // Asignar los datos del JSON a la variable productos
-      productos = data;
-      crearHTML(productos);
+  // Declarar el array de productos como variable global
+  let productos;
 
-      // Asignar 'todos' como la categoría inicial
-      const initialCategory = 'todos';
+  // Función para cargar los datos de forma asíncrona
+  const getData = async (url) => {
+    try {
+      const respuesta = await fetch(url);
+      const datos = await respuesta.json();
+      console.log(datos);
+      // Desestructurar los datos y asignarlos a la variable global 'productos'
+      productos = datos.productos; // Asumiendo que el nombre del array es 'productos'
 
-      categories.forEach(function (category) {
-        category.classList.remove('active');
-      });
-
-      // Mostrar todos los productos
-      itemGroups.forEach(function (group) {
-        group.style.display = 'block';
-      });
-
-      categories.forEach(function (category) {
-        if (category.dataset.category === initialCategory) {
-          category.classList.add('active');
-        }
-      });
-
-      // Event listener para cambiar los productos según la categoría seleccionada
-      categories.forEach(function (category) {
-        category.addEventListener('click', function () {
-          categories.forEach(function (c) {
-            c.classList.remove('active');
-          });
-
-          category.classList.add('active');
-
-          const selectedCategory = category.dataset.category;
-
-          itemGroups.forEach(function (group) {
-            if (group.id === selectedCategory || selectedCategory === 'todos') {
-              group.style.display = 'block';
-            } else {
-              group.style.display = 'none';
-            }
-          });
-        });
-      });
-
-      // Agregar evento de click al botón de búsqueda
-      searchButton.addEventListener('click', function () {
-        buscar();
-      });
-    })
-    .catch(error => {
-      console.error('Error al cargar los productos:', error);
-    });
+      // Después de obtener los datos, llamar a las funciones necesarias
+      crearHtml(productos); // Asumiendo que existe la función crearHtml
+      agregarEventos(productos); // Asumiendo que existe la función agregarEventos
+    } catch (error) {
+      console.error("Error al obtener los datos:", error);
+    }
+  };
 
   // Función para buscar productos
   function buscar() {
@@ -100,4 +60,54 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
+
+  // URL de la API o archivo JSON
+  const API_URL = "../db/db.json";
+
+  // Llamar a la función para obtener los datos
+  getData(API_URL);
+
+  // Asignar 'todos' como la categoría inicial
+  const initialCategory = 'todos';
+
+  categories.forEach(function (category) {
+    category.classList.remove('active');
+  });
+
+  // Mostrar todos los productos
+  itemGroups.forEach(function (group) {
+    group.style.display = 'block';
+  });
+
+  categories.forEach(function (category) {
+    if (category.dataset.category === initialCategory) {
+      category.classList.add('active');
+    }
+  });
+
+  // Event listener para cambiar los productos según la categoría seleccionada
+  categories.forEach(function (category) {
+    category.addEventListener('click', function () {
+      categories.forEach(function (c) {
+        c.classList.remove('active');
+      });
+
+      category.classList.add('active');
+
+      const selectedCategory = category.dataset.category;
+
+      itemGroups.forEach(function (group) {
+        if (group.id === selectedCategory || selectedCategory === 'todos') {
+          group.style.display = 'block';
+        } else {
+          group.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Agregar evento de click al botón de búsqueda
+  searchButton.addEventListener('click', function () {
+    buscar();
+  });
 });
