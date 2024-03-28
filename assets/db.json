@@ -1,0 +1,63 @@
+{
+  "productos": [{
+      "id": 1,
+      "nombre": "Aceite Belmont 1lt",
+      "precio": 4000,
+      "stock": 800
+    },
+    {
+      "id": 2,
+      "nombre": "Coca Cola 3lts",
+      "precio": 3000,
+      "stock": 500
+    },
+    {
+      "id": 3,
+      "nombre": "Lavalozas Quix 1lt",
+      "precio": 2850,
+      "stock": 700
+    },
+    {
+      "id": 4,
+      "nombre": "Leche Soprole Chocolate 1lt",
+      "precio": 1200,
+      "stock": 1200
+    },
+    {
+      "id": 5,
+      "nombre": "Galletas Oreo Chocolate",
+      "precio": 850,
+      "stock": 80
+    },
+    {
+      "id": 6,
+      "nombre": "Arroz Miraflores Granel",
+      "precio": 1600,
+      "stock": 980
+    },
+    {
+      "id": 7,
+      "nombre": "Papel Higiénico Suave 4 rollos",
+      "precio": 2000,
+      "stock": 450
+    },
+    {
+      "id": 8,
+      "nombre": "Manzanas Royal Gala (kg)",
+      "precio": 3500,
+      "stock": 600
+    },
+    {
+      "id": 9,
+      "nombre": "Jabón Dove 100g",
+      "precio": 1200,
+      "stock": 250
+    },
+    {
+      "id": 10,
+      "nombre": "Atún en lata 160g",
+      "precio": 2500,
+      "stock": 560
+    }
+  ]
+}
