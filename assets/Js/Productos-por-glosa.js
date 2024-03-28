@@ -1,62 +1,87 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Función para mostrar las ventas del día en la tabla
-    function mostrarVentasDelDia() {
-        // Obtener las ventas del día del localStorage
-        let ventasDelDia = JSON.parse(localStorage.getItem('ventasDelDia'));
+document.addEventListener('DOMContentLoaded', function () {
+    // Obtener el botón y la ventana emergente
+    const btnProductoPorGlosa = document.getElementById('btnProductoPorGlosa');
+    const popupWindow = document.getElementById('popupWindow');
+    const closePopup = document.getElementById('closePopup');
 
-        // Verificar si hay ventas del día
-        if (ventasDelDia) {
-            // Obtener la fecha actual en formato YYYY-MM-DD
-            const fecha = new Date().toISOString().split('T')[0];
+    // Agregar evento de clic al botón
+    btnProductoPorGlosa.addEventListener('click', function () {
+        // Mostrar la ventana emergente
+        popupWindow.style.display = 'block';
+        // Cargar el contenido de la ventana emergente
+        cargarContenidoPopup();
+    });
 
-            // Obtener las ventas del día actual
-            const ventas = ventasDelDia[fecha];
+    // Agregar evento de clic al botón de cerrar
+    closePopup.addEventListener('click', function () {
+        // Ocultar la ventana emergente al hacer clic en el botón de cerrar
+        popupWindow.style.display = 'none';
+    });
 
-            // Verificar si hay ventas para mostrar
-            if (ventas && ventas.length > 0) {
-                let tablaVentas = document.getElementById('tablaVentas');
+    // Función para cargar el contenido de la ventana emergente
+    async function cargarContenidoPopup() {
+        // Contenido de la ventana emergente
+        const popupContent = document.getElementById('popupContent');
+        popupContent.innerHTML = `
+            <h3 style="color: white;">Buscar Producto por Código de Barras o SKU</h3>
+            <input type="text" id="codigoInput" placeholder="Código de Barras o SKU">
+            <button id="btnBuscar">Buscar</button>
+            <div id="resultado"></div>
+        `;
 
-                // Limpiar la tabla antes de agregar nuevas ventas
-                tablaVentas.innerHTML = '';
+        // Agregar evento de clic al botón de búsqueda
+        document.getElementById('btnBuscar').addEventListener('click', async function () {
+            const codigo = document.getElementById('codigoInput').value;
+            // Realizar búsqueda en la base de datos y mostrar resultados
+            await buscarProductoPorCodigo(codigo);
+        });
+    }
 
-                // Iterar sobre las ventas del día y agregarlas a la tabla
-                ventas.forEach(venta => {
-                    // Formatear el precio del producto
-                    const precioFormateado = new Intl.NumberFormat('es-CL', {
-                        style: 'currency',
-                        currency: 'CLP'
-                    }).format(venta.precio);
-
-                    let fila = `
-                        <tr>
-                            <td>${venta.nombre}</td>
-                            <td>${precioFormateado}</td>
-                            <td>${venta.cantidad}</td>
-                        </tr>
-                    `;
-                    tablaVentas.innerHTML += fila;
-                });
-            }
+    // Función para cargar los datos de los productos desde db.json
+    async function cargarDatosProductos() {
+        try {
+            const response = await fetch('/assets/db/db.json');
+            const data = await response.json();
+            return data.productos;
+        } catch (error) {
+            console.error('Error al cargar los datos de los productos:', error);
+            return [];
         }
     }
 
-    // Función para limpiar la tabla de ventas del día
-    function limpiarTablaVentas() {
-        // Obtener la referencia a la tabla en la página "Ventas del día"
-        let tablaVentas = document.getElementById('tablaVentas');
+    // Función para buscar el producto en la base de datos
+    async function buscarProductoPorCodigo(codigo) {
+        // Cargar los datos de los productos
+        const productos = await cargarDatosProductos();
 
-        // Limpiar la tabla
-        tablaVentas.innerHTML = '';
+        // Realizar la búsqueda del producto por código de barras o SKU
+        const productoEncontrado = productos.find(producto => producto.codigo_barras === codigo || producto.sku === codigo);
+
+        // Mostrar el resultado de la búsqueda
+        mostrarResultado(productoEncontrado);
     }
 
-    // Llamar a la función para mostrar las ventas del día al cargar la página
-    mostrarVentasDelDia();
+    // Función para mostrar el resultado de la búsqueda
+    function mostrarResultado(productoEncontrado) {
+        const resultadoElement = document.getElementById('resultado');
+        if (productoEncontrado) {
+            // Mostrar información del producto
+            resultadoElement.innerHTML = `
+                <h5 style="color: white;">${productoEncontrado.nombre}</h5>
+                <p>Precio: ${productoEncontrado.precio}</p>
+                <p>Stock: ${productoEncontrado.stock}</p>
+                <p>SKU: ${productoEncontrado.sku}</p>
+                <p>Código de Barras: ${productoEncontrado.codigo_barras}</p>
+                <button id="btnAceptar">Aceptar</button>
+            `;
 
-    // Agregar evento de clic al botón para limpiar la tabla
-    let btnLimpiarTabla = document.getElementById('btnLimpiarTabla');
-    if (btnLimpiarTabla) {
-        btnLimpiarTabla.addEventListener('click', function () {
-            limpiarTablaVentas();
-        });
+            // Agregar evento de clic al botón de aceptar
+            document.getElementById('btnAceptar').addEventListener('click', function () {
+                // Ocultar la ventana emergente al hacer clic en el botón de aceptar
+                popupWindow.style.display = 'none';
+            });
+        } else {
+            resultadoElement.textContent = 'Producto no encontrado.';
+        }
     }
 });

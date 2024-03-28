@@ -890,17 +890,56 @@ td span {
 }
 
 
+/* Estilo para la ventana emergente */
+.popupWindow {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  max-height: 80vh; 
+  padding: 20px;
+  border: 5px solid #0d0420;
+  background-color: #2c5d70;
+  border-radius: 10px;
+  font-size: 16px;
+  overflow-y: auto; 
+}
+
+/* Estilo para el botón de cerrar */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color:#ffffff;
+}
+
+#btnAceptar, #btnBuscar {
+  background-color: #2c5d70; 
+  color: #fff;
+  border: 1px solid #fff; 
+  border-radius: 4px; 
+  padding: 8px 16px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  margin: 4px; 
+}
+
 
 
 @media only screen and (max-width: 900px) {
   .item-group .wrappers {
     justify-content: center;
-    /* Centra las tarjetas en dispositivos móviles */
+
   }
 
   .item-group .card {
     width: calc(50% - 20px);
-    /* Cambia el ancho de las tarjetas en dispositivos móviles */
+
   }
 }
 
@@ -908,14 +947,14 @@ td span {
 @media (max-width: 999px) {
   .wrappers .card {
     width: calc(50% - 20px);
-    /* Establece el ancho para dos tarjetas en una fila en pantallas más pequeñas */
+  
   }
 }
 
 @media (max-width: 699px) {
   .wrappers .card {
     width: calc(100% - 20px);
-    /* Establece el ancho para una tarjeta en una fila en pantallas aún más pequeñas */
+
   }
 }
 
@@ -930,18 +969,18 @@ td span {
 @media screen and (max-width: 991px) {
 
   .wrappers {
-    justify-content: center; /* Centra las tarjetas */
-    gap: 10px; /* Reduce el espacio entre tarjetas */
+    justify-content: center; 
+    gap: 10px;
   }
 
   .item-group {
-    flex: 0 0 calc(50% - 10px); /* Dos tarjetas por fila */
+    flex: 0 0 calc(50% - 10px); 
     max-width: calc(50% - 10px);
-    margin-bottom: 20px; /* Espacio entre filas */
+    margin-bottom: 20px; 
   }
 
   .card {
-    min-width: 0; /* Evita que las tarjetas tengan un ancho mínimo grande */
+    min-width: 0; 
     margin-left: 0;
     margin-right: 0;
   }
@@ -1044,14 +1083,14 @@ td span {
 
   .search input {
     width: 90%;
-    /* Reducir el ancho del campo de búsqueda */
+
   }
 
   .sellables-container .sellables .item-group-wrapper .item-group .item {
     padding: 20px;
-    /* Reducir el padding de los productos en tablet */
+ 
     min-width: 150px;
-    /* Ajustar el tamaño mínimo de los productos */
+  
   }
 }
 
@@ -1059,18 +1098,18 @@ td span {
 @media (max-width: 767px) {
 
   .wrappers {
-    justify-content: center; /* Centra las tarjetas */
-    gap: 10px; /* Reduce el espacio entre tarjetas */
+    justify-content: center; 
+    gap: 10px; 
   }
 
   .item-group {
-    flex: 0 0 calc(50% - 10px); /* Dos tarjetas por fila */
+    flex: 0 0 calc(50% - 10px); 
     max-width: calc(50% - 10px);
-    margin-bottom: 20px; /* Espacio entre filas */
+    margin-bottom: 20px; 
   }
 
   .card {
-    min-width: 0; /* Evita que las tarjetas tengan un ancho mínimo grande */
+    min-width: 0; 
     margin-left: 0;
     margin-right: 0;
   }
@@ -1078,48 +1117,48 @@ td span {
 
   .search input {
     width: 100%;
-    /* Ancho completo */
+  
     margin-left: 0;
-    /* Eliminar el margen izquierdo */
+
   }
 
   .sellables-container {
     flex-direction: column;
-    /* Cambiar la dirección de los elementos a columna */
+
   }
 
   .item-group {
     flex: 0 0 calc(100% - 20px);
-    /* Ancho completo */
+  
     margin-right: 0;
-    /* Eliminar el margen derecho */
+
   }
 
   .card {
     min-width: 100%;
-    /* Ancho completo */
+
     margin-right: 0;
-    /* Eliminar el margen derecho */
+  
   }
 
   .register-wrapper {
     margin-top: 20px;
-    /* Agregar espacio arriba */
+   
   }
 
   .register {
     width: 100%;
-    /* Ancho completo */
+    
   }
 
   .register .pay-button {
     margin-top: 20px;
-    /* Agregar espacio arriba */
+
   }
 
   .pay-button a {
     padding: 10px 20px;
-    /* Ajustar el relleno */
+
   }
 }
 
@@ -1129,21 +1168,21 @@ td span {
 /* Estilos para el contenedor de los productos vendibles */
 .sellables-container {
   display: flex;
-  flex-direction: column; /* Cambiamos a una disposición de columna en pantallas pequeñas */
+  flex-direction: column; 
   flex: 1;
 }
 
 /* Estilos para las categorías */
 body .sellables-container .sellables .categories {
   display: flex;
-  flex-wrap: wrap; /* Permitimos que las categorías se envuelvan en múltiples líneas */
-  justify-content: center; /* Centramos horizontalmente las categorías */
-  gap: 10px; /* Espacio entre las categorías */
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 10px; 
 }
 
 /* Ajustes para las categorías individuales */
 body .sellables-container .sellables .categories .category {
-  width: calc(30% - 10px); /* Calculamos el ancho para que quepan 2 categorías en una fila con espacio entre ellas */
+  width: calc(30% - 10px); 
   padding: 3px;
   margin: 5px;
   border: 1px solid #c8cfd8;
@@ -1163,8 +1202,8 @@ body .sellables-container .sellables .categories .category {
 }
   /* Ajustes para tarjetas individuales */
   .item-group {
-    width: 100%; /* Aseguramos que ocupe todo el ancho disponible */
-    margin-bottom: 20px; /* Añadimos margen inferior para separar las tarjetas */
+    width: 100%; 
+    margin-bottom: 20px; 
   }
 .item-group {
   width: calc(100% - 10px);
@@ -1182,7 +1221,7 @@ body .sellables-container .sellables .categories .category {
 }
 
 .item-group .card .price button {
-  width: 100%; /* Cambiamos el ancho del botón al 100% en pantallas pequeñas */
+  width: 100%; 
   font-size: 6px;
 }
 
