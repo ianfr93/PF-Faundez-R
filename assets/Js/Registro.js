@@ -47,12 +47,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Mostrar mensaje de éxito 
       Swal.fire({
-         
           iconHtml: '<i class="fas fa-check-circle" style="color: green;"></i>',
           confirmButtonColor: '#2c5d70',
           title: 'Éxito',
           text: '¡Usuario registrado con éxito!'
+      }).then((result) => {
+          // Redireccionar a la página index
+          window.location.href = "index.html";
       });
+
       console.log("Nuevo usuario registrado:", newUser); 
   });
 });

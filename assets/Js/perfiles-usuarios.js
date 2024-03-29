@@ -52,7 +52,7 @@ function inicializar() {
     // Agregar evento al botón de guardar
     document.getElementById("sendButton").addEventListener("click", function () {
         guardarDatosUsuario();
-        cargarDatosUsuario(); // Actualizar la vista con los nuevos datos guardados
+        cargarDatosUsuario(); 
     });
 }
 
