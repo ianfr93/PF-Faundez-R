@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   };
 
-  // Función para buscar productos por nombre
+  // Función para buscar productos 
   function buscar() {
     const inputBusqueda = searchInput.value.trim().toLowerCase();
 
