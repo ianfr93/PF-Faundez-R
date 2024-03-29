@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para limpiar la tabla de ventas del día
     function limpiarTablaVentas() {
-        // Obtener la referencia a la tabla en la página "Ventas del día"
+
         let tablaVentas = document.getElementById('tablaVentas');
 
         // Limpiar la tabla

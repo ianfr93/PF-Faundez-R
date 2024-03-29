@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Verificar si el usuario ya existe
       if (usuarios.some(user => user.usuario === usuario)) {
-          // Mostrar mensaje de error con SweetAlert2
+          // Mostrar mensaje de error 
           Swal.fire({
               icon: 'error',
               confirmButtonColor: '#2c5d70',
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Limpiar el formulario
       formRegistro.reset();
 
-      // Mostrar mensaje de éxito con SweetAlert2
+      // Mostrar mensaje de éxito 
       Swal.fire({
          
           iconHtml: '<i class="fas fa-check-circle" style="color: green;"></i>',

@@ -27,7 +27,7 @@ function descontarStock(nombreProducto, cantidad) {
   }
 }
 document.addEventListener("DOMContentLoaded", function () {
-  // Agregar evento click a los botones "Añadir al carro"
+
   let botonesAgregar = document.querySelectorAll('.price button');
   botonesAgregar.forEach(function (boton) {
     boton.addEventListener('click', function () {
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Guardar el carrito actualizado en localStorage
     localStorage.setItem('carrito', JSON.stringify(carrito));
-    // Actualizar la interfaz de usuario con el contenido del carrito
+
     actualizarCarritoUI(carrito);
   }
 
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let celdaPrecio = filaCabecera.insertCell();
 
 
-      // Agregar elementos span para separar visualmente los textos en las celdas
+      // Tabla elementos
       celdaProducto.innerHTML = '<span>Producto</span>';
       celdaCantidad.innerHTML = '<span>Cantidad</span>';
       celdaPrecio.innerHTML = '<span>Precio</span>';
@@ -184,8 +184,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         celdaCantidad.appendChild(botonAumentar);
         celdaPrecio.textContent = '$' + (producto.precio * producto.cantidad).toFixed(2);
-
-
 
         // Ícono de eliminación
         let iconoEliminar = document.createElement('i');
@@ -228,24 +226,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
- // Función para realizar el pago
-function realizarPago() {
-  let productos = obtenerCarrito();
-  let total = calcularTotal(productos);
+  // Función para realizar el pago
+  function realizarPago() {
+    let productos = obtenerCarrito();
+    let total = calcularTotal(productos);
 
-  // Verificar si el total es igual a 0
-  if (total === 0) {
-      // Mostrar mensaje de error usando SweetAlert
+    // Verificar si el total es igual a 0
+    if (total === 0) {
+
       Swal.fire({
-          confirmButtonColor: '#2c5d70',
-          icon: 'error',
-          title: 'Oops...',
-          text: 'No puedes realizar el pago porque el carrito está vacío.'
+        confirmButtonColor: '#2c5d70',
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No puedes realizar el pago porque el carrito está vacío.'
       });
-  } else {
+    } else {
       // Descontar el stock de los productos vendidos
       productos.forEach(function (producto) {
-          descontarStock(producto.nombre, producto.cantidad);
+        descontarStock(producto.nombre, producto.cantidad);
       });
 
       // Llamar a la función para almacenar la venta del día
@@ -253,32 +251,32 @@ function realizarPago() {
 
       // Mostrar mensaje de alerta indicando que el pago se ha realizado con éxito
       Swal.fire({
-          confirmButtonColor: '#2c5d70',
-          iconHtml: '<i class="fas fa-check-circle" style="color: green;"></i>',
-          title: '¡Pago realizado con éxito!',
-          text: '¡Gracias por tu compra!'
+        confirmButtonColor: '#2c5d70',
+        iconHtml: '<i class="fas fa-check-circle" style="color: green;"></i>',
+        title: '¡Pago realizado con éxito!',
+        text: '¡Gracias por tu compra!'
       }).then((result) => {
-          if (result.isConfirmed) {
-              // Limpiar el carrito después del pago exitoso
-              borrarVenta();
-          }
+        if (result.isConfirmed) {
+          // Limpiar el carrito después del pago exitoso
+          borrarVenta();
+        }
       });
+    }
   }
-}
 
-// Función para almacenar la venta del día en el localStorage
-function almacenarVentaDelDia(productos) {
-  // Obtener la fecha actual en formato YYYY-MM-DD
-  const fecha = new Date().toISOString().split('T')[0];
+  // Función para almacenar la venta del día en el localStorage
+  function almacenarVentaDelDia(productos) {
+    // Obtener la fecha actual en formato YYYY-MM-DD
+    const fecha = new Date().toISOString().split('T')[0];
 
-  // Obtener las ventas del día existentes del localStorage
-  let ventasDelDia = JSON.parse(localStorage.getItem('ventasDelDia')) || {};
+    // Obtener las ventas del día existentes del localStorage
+    let ventasDelDia = JSON.parse(localStorage.getItem('ventasDelDia')) || {};
 
-  // Agregar la venta actual a las ventas del día
-  ventasDelDia[fecha] = productos;
+    // Agregar la venta actual a las ventas del día
+    ventasDelDia[fecha] = productos;
 
-  // Guardar las ventas del día actualizadas en el localStorage
-  localStorage.setItem('ventasDelDia', JSON.stringify(ventasDelDia));
-}
+    // Guardar las ventas del día actualizadas en el localStorage
+    localStorage.setItem('ventasDelDia', JSON.stringify(ventasDelDia));
+  }
 
 });
