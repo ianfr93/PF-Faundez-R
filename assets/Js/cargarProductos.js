@@ -71,23 +71,18 @@ document.addEventListener('DOMContentLoaded', function () {
   // Cargar datos y ejecutar funciones necesarias después de obtener los datos
   getData()
     .then(productos => {
-      // Almacenar los productos obtenidos en una variable global
+
       window.productos = productos;
-      // Llamar a las funciones necesarias después de obtener los datos
-      // Por ejemplo, aquí podrías llamar a la función para crear la interfaz HTML con los productos
-      crearInterfaz(productos); // Llama a una función para crear la interfaz con los productos
+
+      crearInterfaz(productos); 
     })
     .catch(error => {
       console.error("Error al cargar los productos:", error);
     });
   
-  // Función para crear la interfaz HTML con los productos
+
   function crearInterfaz(productos) {
-    // Aquí puedes crear la interfaz HTML con los productos utilizando los datos obtenidos
-    // Por ejemplo:
-    // productos.forEach(producto => {
-    //   // Crea elementos HTML para cada producto y agrega al DOM
-    // });
+
   }
 
 });
