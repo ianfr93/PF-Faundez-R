@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+
   // Función para obtener el valor seleccionado de un select
   function obtenerValorSelect(idSelect) {
     const selectElement = document.getElementById(idSelect);
@@ -48,4 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   }
+
+  document.addEventListener("DOMContentLoaded", function () {
 });
