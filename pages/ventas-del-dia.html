@@ -2,121 +2,118 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Sistena POS WEB PUNTO DE VENTA PARA NEGOCIOS." />
-    <meta name="keywords" content="comida, Ventas, Articulos, Supermercado, Tienda, Categorias, Productos, Calcular" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-    <title>Ventas del dia</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Sistena POS WEB PUNTO DE VENTA PARA NEGOCIOS." />
+  <meta name="keywords" content="comida, Ventas, Articulos, Supermercado, Tienda, Categorias, Productos, Calcular" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <title>Ventas del dia</title>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 
-    <!-- aos -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- aos -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-   <!-- alert -->
-   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css" rel="stylesheet">
+  <!-- alert -->
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css" rel="stylesheet">
 
-    <!-- estilos -->
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/fonts.css">
+  <!-- estilos -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/fonts.css">
 
-    <!-- font awesome  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- font awesome  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
 
   <div id="loading-overlay">
     <img src="../assets/img/loading/megatron.gif" alt="Loading...">
-</div>
-   
+  </div>
+
   <nav class="navbar navbar-expand-lg navbar-light bg-color">
     <a class="navbar-brand" href="#">
-        <img src="../assets/img/logo/logo-blanco.png" alt="Logo de la Marca" style="width: 150px; height: auto;">
+      <img src="../assets/img/logo/logo-blanco.png" alt="Logo de la Marca" style="width: 150px; height: auto;">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link text-white" href="./dashboard.html"><i class="fas fa-barcode fa-sm"></i> POS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="./Ver-stock.html">
-                    <i class="fas fa-archive fa-sm"></i> Ver Stock
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="./ventas-del-dia.html"><i class="fas fa-chart-line fa-sm"></i>
-                    Ventas del día</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="./cerrar-caja.html">
-                    <i class="fas fa-lock fa-sm"></i> Cerrar Caja
-                </a>
-            </li>
-        </ul>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link text-white cerrar-sesion" href="../index.html">
-                    <i class="fas fa-sign-out-alt fa-sm" style="margin-right: 10px;"></i> Cerrar Sesión
-                </a>
-            </li>
-        </ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="./dashboard.html"><i class="fas fa-barcode fa-sm"></i> POS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="./Ver-stock.html">
+            <i class="fas fa-archive fa-sm"></i> Ver Stock
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="./ventas-del-dia.html"><i class="fas fa-chart-line fa-sm"></i>
+            Ventas del día</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="./cerrar-caja.html">
+            <i class="fas fa-lock fa-sm"></i> Cerrar Caja
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-white cerrar-sesion" href="../index.html">
+            <i class="fas fa-sign-out-alt fa-sm" style="margin-right: 10px;"></i> Cerrar Sesión
+          </a>
+        </li>
+      </ul>
     </div>
+  </nav>
 
-</nav>
+  <div class="container mt-4">
+    <h2>Ventas del día</h2>
 
-<div class="container mt-4">
-  <h2>Ventas del día</h2>
+    <!-- Botón para limpiar la tabla -->
+    <button id="btnLimpiarTabla" class="btn btn-danger mb-3">Limpiar Tabla</button>
 
-  <!-- Botón para limpiar la tabla -->
-  <button id="btnLimpiarTabla" class="btn btn-danger mb-3">Limpiar Tabla</button>
-
-  <!-- Tabla con Bootstrap -->
-  <table class="table">
+    <!-- Tabla con Bootstrap -->
+    <table class="table">
       <thead>
-          <tr>
-              <th scope="col">Producto</th>
-              <th scope="col">Precio</th>
-              <th scope="col">Cantidad</th>
-          </tr>
+        <tr>
+          <th scope="col">Producto</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Cantidad</th>
+        </tr>
       </thead>
       <tbody id="tablaVentas">
-          <!-- Aquí se mostrarán las ventas del día -->
+        <!-- Aquí se mostrarán las ventas del día -->
       </tbody>
-  </table>
-</div>
+    </table>
+  </div>
 
-<!-- js alert -->
-<script src="
-https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
-"></script>
-
-
-<!-- Scripts personalizados -->
-   <script src="../assets/Js/nav.js"></script>
-   <script src="../assets/Js/Cargando.js"></script>
-    <script src="../assets/Js/Ventas del dia.js"></script>
-    <script src="../assets/Js/Carrito-de-compras.js"></script>
- 
+  <!-- js alert -->
+  <script src="
+  https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
+  "></script>
 
 
-    <!-- Enlace a main.js -->
-    <script src="../assets/Js/main.js"></script>
+  <!-- Scripts personalizados -->
+  <script src="../assets/Js/nav.js"></script>
+  <script src="../assets/Js/Cargando.js"></script>
+  <script src="../assets/Js/Ventas del dia.js"></script>
+  <script src="../assets/Js/Carrito-de-compras.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+  <!-- Enlace a main.js -->
+  <script src="../assets/Js/main.js"></script>
 
- 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+  </script>
+
+
 
 </body>
 
