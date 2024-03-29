@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log("Nombre de usuario ya en uso:", usuario); 
           return;
       }
-
       // Crear un nuevo usuario
       const newUser = {
           nombreCompleto: nombreCompleto,
