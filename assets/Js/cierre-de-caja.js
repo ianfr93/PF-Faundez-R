@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // Manejar el envío del formulario de cierre de caja
     $('form').submit(function (event) {
-        event.preventDefault(); // Evitar que el formulario se envíe automáticamente
+        event.preventDefault(); 
 
         // Obtener los valores del formulario
         let montoCierre = $('#montoCierre').val();

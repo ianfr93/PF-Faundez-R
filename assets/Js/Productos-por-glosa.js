@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const popupWindow = document.getElementById('popupWindow');
     const closePopup = document.getElementById('closePopup');
 
-    // Agregar evento de clic al botón
+
     btnProductoPorGlosa.addEventListener('click', function () {
         // Mostrar la ventana emergente
         popupWindow.style.display = 'block';
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         cargarContenidoPopup();
     });
 
-    // Agregar evento de clic al botón de cerrar
+
     closePopup.addEventListener('click', function () {
         // Ocultar la ventana emergente al hacer clic en el botón de cerrar
         popupWindow.style.display = 'none';
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Agregar evento de clic al botón de aceptar
             document.getElementById('btnAceptar').addEventListener('click', function () {
-                // Ocultar la ventana emergente al hacer clic en el botón de aceptar
+    
                 popupWindow.style.display = 'none';
             });
         } else {
